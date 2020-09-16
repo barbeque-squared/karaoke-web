@@ -1,49 +1,8 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
 scorebar {
   width: 100%;
   top: 0;
   display: block;
-  height: 9vw;
+  height: 9vh;
   display: flex;
 }
 
@@ -55,19 +14,23 @@ scorecard {
 
 scorecard name {
   display: block;
-  font-size: 2vw;
+  font-size: 2.5vh;
 }
 scorecard score {
-  font-size: 4vw;
+  font-size: 5.5vh;
+}
+
+noteareas {
+  display: flex;
+  height: 77vh;
 }
 
 sentences {
-  font-size: 4vw;
+  font-size: 5vh;
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  height: 10vh;
   text-align: center;
-  height: 10vw;
+  overflow: hidden;
 }
 sentence {
   display: block;

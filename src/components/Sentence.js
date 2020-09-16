@@ -4,7 +4,7 @@ class Sentence extends Component {
   render() {
   const text = this.props.text
     return (
-      <sentence>{text}</sentence>
+      <div className="sentence">{text}</div>
     );
   }
 }

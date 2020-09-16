@@ -3,10 +3,10 @@ import React, {Component} from 'react'
 class ScoreCard extends Component {
   render() {
     return (
-      <scorecard>
-        <name>PLAYERNAME</name>
-        <score>{this.props.score}</score>
-      </scorecard>
+      <div className="scorecard">
+        <div className="name">{this.props.name}</div>
+        <div className="score">{this.props.score}</div>
+      </div>
     );
   }
 }

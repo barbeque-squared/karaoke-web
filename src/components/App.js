@@ -5,13 +5,6 @@ import 'firebase/database';
 
 import SingScreen from './SingScreen';
 
-let data = {
-  names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
-  scores: [1000, 0, 9000, 500, 20, 0],
-  sentence1: 'example lyrics',
-  sentence2: 'next line lyrics'
-}
-
 const config = {
   apiKey: process.env.REACT_APP_APIKEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -25,12 +18,17 @@ const config = {
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {data}
+    this.state = {
+      names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
+      scores: [1000, 0, 9000, 500, 20, 0],
+      sentence1: 'example lyrics 1',
+      sentence2: 'next line lyrics 2'
+    }
   }
 
   render() {
     return (
-      <SingScreen data={data} />
+      <SingScreen data={this.state} />
     );
   }
 
@@ -41,18 +39,15 @@ class App extends Component {
   
   initFirebase() {
     try {
-      console.log(config);
       firebase.initializeApp(config);
       let database = firebase.database();
       // setup handlers
-      database.ref('scores').on('value', this.updateScores);
+      //~ database.ref('scores').on('value', (scores) => {this.setState({scores: scores.val()})});
+      database.ref('karaoke/sentence1').on('value', (text) => {this.setState({sentence1: text.val()})});
+      database.ref('karaoke/sentence2').on('value', (text) => {this.setState({sentence2: text.val()})});
     } catch (e) {
       console.error(e);
     }
-  };
-  
-  updateScores(scores) {
-    data.scores=scores.val();
   }
 }
 

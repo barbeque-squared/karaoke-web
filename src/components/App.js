@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
 import '../App.css';
-import app from 'firebase/app';
+import * as firebase from 'firebase/app';
 import 'firebase/database';
 
 import SingScreen from './SingScreen';
 
-const data = {
-  players: [
-    {name: 'Player 1', score: 1000},
-    {name: 'Player 2', score: 0},
-    {name: 'Player 3', score: 9000},
-    {name: 'Player 4', score: 500},
-    {name: 'Player 5', score: 20},
-    {name: 'Player 6', score: 0}
-  ],
+let data = {
+  names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
+  scores: [1000, 0, 9000, 500, 20, 0],
   sentence1: 'example lyrics',
   sentence2: 'next line lyrics'
 }
@@ -31,7 +25,7 @@ const config = {
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {firebase: {loaded: false}}
+    this.state = {data}
   }
 
   render() {
@@ -48,11 +42,18 @@ class App extends Component {
   initFirebase() {
     try {
       console.log(config);
-      app.initializeApp(config);
+      firebase.initializeApp(config);
+      let database = firebase.database();
+      // setup handlers
+      database.ref('scores').on('value', this.updateScores);
     } catch (e) {
       console.error(e);
     }
   };
+  
+  updateScores(scores) {
+    data.scores=scores.val();
+  }
 }
 
 export default App;

@@ -8,9 +8,9 @@ class SingScreen extends Component {
   render() {
     return (
       <>
-        <ScoreBar players={this.props.data.players}/>
-        <div className={"noteareas" + (this.props.data.players.length > 3 ? " twocolumn" : "")}>
-          {this.props.data.players.map((player, index) => (<NoteArea key={index}/>))}
+        <ScoreBar names={this.props.data.names} scores={this.props.data.scores}/>
+        <div className={"noteareas" + (this.props.data.names.length > 3 ? " twocolumn" : "")}>
+          {this.props.data.names.map((names, index) => (<NoteArea key={index}/>))}
         </div>
         <div className="sentences">
           <Sentence text={this.props.data.sentence1}/>

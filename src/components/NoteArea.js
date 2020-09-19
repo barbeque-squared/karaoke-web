@@ -38,7 +38,7 @@ class NoteArea extends Component {
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")
       return (
-        <svg viewBox={viewbox} height="100%" width="100%" preserveAspectRatio="none" className="notearea">
+        <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
           <line x1={svgsize.start} y1={svgsize.min+1} x2={svgsize.end} y2={svgsize.min+1} />
           <line x1={svgsize.start} y1={svgsize.min+3} x2={svgsize.end} y2={svgsize.min+3} />
           <line x1={svgsize.start} y1={svgsize.min+5} x2={svgsize.end} y2={svgsize.min+5} />
@@ -60,9 +60,8 @@ class NoteArea extends Component {
     }
     
     return (
-      <div className="notearea">
-        imagine notes here for now
-      </div>
+      <svg width="100%" height="100%" className="notearea">
+      </svg>
     );
   }
 }

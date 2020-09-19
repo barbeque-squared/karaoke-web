@@ -13,8 +13,8 @@ class SingScreen extends Component {
           {this.props.data.names.map((names, index) => (<NoteArea key={index} notes={this.props.data.notes1}/>))}
         </div>
         <div className="sentences">
-          <Sentence text={this.props.data.sentence1}/>
-          <Sentence text={this.props.data.sentence2}/>
+          <Sentence notes={this.props.data.notes1}/>
+          <Sentence notes={this.props.data.notes2}/>
         </div>
       </>
     );

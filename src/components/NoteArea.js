@@ -38,7 +38,7 @@ class NoteArea extends Component {
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")
       return (
-        <svg viewBox={viewbox} height="100%" width="100%" preserveAspectRatio="none" class="notearea">
+        <svg viewBox={viewbox} height="100%" width="100%" preserveAspectRatio="none" className="notearea">
           <line x1={svgsize.start} y1={svgsize.min+1} x2={svgsize.end} y2={svgsize.min+1} />
           <line x1={svgsize.start} y1={svgsize.min+3} x2={svgsize.end} y2={svgsize.min+3} />
           <line x1={svgsize.start} y1={svgsize.min+5} x2={svgsize.end} y2={svgsize.min+5} />
@@ -48,6 +48,7 @@ class NoteArea extends Component {
           {notes.map((note, index) => (
             // TODO: y and height depend on difficulty (0.2 = Medium?)
             <rect
+              key={index}
               x={note.Start}
               y={svgsize.max - note.Tone - 0.5}
               width={note.Length}

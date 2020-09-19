@@ -37,6 +37,10 @@ svg.notearea line {
   stroke: gray;
 }
 
+svg.notearea .playernote {
+  fill: red;
+}
+
 /* SENTENCES */
 .sentences {
   font-size: 5vh;

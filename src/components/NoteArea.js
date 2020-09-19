@@ -71,6 +71,18 @@ class NoteArea extends Component {
               className={this.noteTypeToClass(note.NoteType)}
             />
           ))}
+          {this.props.playernotes.map((note, index) => (
+            // TODO: y and height depend on difficulty (0.2 = Medium?)
+            <rect
+              key={index}
+              x={note.Start}
+              y={svgsize.max - note.Tone - 0.5}
+              ry="0.5"
+              width={note.Length}
+              height={1}
+              className="playernote"
+            />
+          ))}
         </svg>
       )
     }

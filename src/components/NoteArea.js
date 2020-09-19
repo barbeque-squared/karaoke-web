@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import NoteType from '../constants/NoteType'
+
 class NoteArea extends Component {
   octave(min, max) {
     // ideally, diff between min and max = 12
@@ -19,6 +21,18 @@ class NoteArea extends Component {
       end: end + offset,
       min: octave.min,
       max: octave.max
+    }
+  }
+  
+  isSingable(note) {
+    return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
+  }
+  
+  noteTypeToClass(notetype) {
+    switch (notetype) {
+      case NoteType.NORMAL: return "normal"
+      case NoteType.GOLDEN: return "golden"
+      default: return "normal"
     }
   }
   
@@ -45,14 +59,16 @@ class NoteArea extends Component {
           <line x1={svgsize.start} y1={svgsize.min+7} x2={svgsize.end} y2={svgsize.min+7} />
           <line x1={svgsize.start} y1={svgsize.min+9} x2={svgsize.end} y2={svgsize.min+9} />
           <line x1={svgsize.start} y1={svgsize.min+11} x2={svgsize.end} y2={svgsize.min+11} />
-          {notes.map((note, index) => (
+          {notes.filter(this.isSingable).map((note, index) => (
             // TODO: y and height depend on difficulty (0.2 = Medium?)
             <rect
               key={index}
               x={note.Start}
               y={svgsize.max - note.Tone - 0.5}
+              ry="0.5"
               width={note.Length}
               height={1}
+              className={this.noteTypeToClass(note.NoteType)}
             />
           ))}
         </svg>

@@ -1,7 +1,6 @@
+/* SCORES */
 .scorebar {
   width: 100%;
-  top: 0;
-  display: block;
   height: 9vh;
   display: flex;
 }
@@ -20,6 +19,7 @@
   font-size: 5.5vh;
 }
 
+/* NOTE AREA */
 .noteareas {
   display: grid;
   height: 77vh;
@@ -32,14 +32,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
-svg.notearea {
-}
-
 svg.notearea line {
   stroke-width: 0.05;
   stroke: gray;
 }
 
+/* SENTENCES */
 .sentences {
   font-size: 5vh;
   font-weight: 800;

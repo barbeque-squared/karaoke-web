@@ -21,6 +21,8 @@ class App extends Component {
     this.state = {
       names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
       scores: [1000, 0, 9000, 500, 20, 0],
+      notes1: {},
+      notes2: {},
       sentence1: 'example lyrics 1',
       sentence2: 'next line lyrics 2'
     }
@@ -43,6 +45,8 @@ class App extends Component {
       let database = firebase.database();
       // setup handlers
       //~ database.ref('scores').on('value', (scores) => {this.setState({scores: scores.val()})});
+      database.ref('karaoke/notes1').on('value', (notes) => {this.setState({notes1: notes.val()})});
+      database.ref('karaoke/notes2').on('value', (notes) => {this.setState({notes2: notes.val()})});
       database.ref('karaoke/sentence1').on('value', (text) => {this.setState({sentence1: text.val()})});
       database.ref('karaoke/sentence2').on('value', (text) => {this.setState({sentence2: text.val()})});
     } catch (e) {

@@ -23,13 +23,21 @@
 .noteareas {
   display: grid;
   height: 77vh;
+  gap: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 
 .noteareas.twocolumn {
   grid-template-columns: 1fr 1fr;
 }
 
-.notearea {
+svg.notearea {
+}
+
+svg.notearea line {
+  stroke-width: 0.05;
+  stroke: gray;
 }
 
 .sentences {
@@ -37,7 +45,6 @@
   width: 100%;
   height: 12vh;
   text-align: center;
-  overflow: hidden;
 }
 .sentence {
   display: block;

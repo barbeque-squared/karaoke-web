@@ -6,7 +6,14 @@ class ScoreBar extends Component {
   render() {
     return (
       <div className="scorebar">
-        {this.props.names.map((name, index) => (<ScoreCard key={index} name={name} score={this.props.scores[index]}/>))}
+        {this.props.names.map((name, index) => (
+          <ScoreCard
+            key={index}
+            name={name}
+            score={this.props.scores[index]}
+            color={this.props.colors[index]}
+          />
+        ))}
       </div>
     );
   }

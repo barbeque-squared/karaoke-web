@@ -29,7 +29,7 @@
 /* NOTE AREA */
 .noteareas {
   display: grid;
-  height: 77vh;
+  height: 78vh;
   gap: 1vw;
   padding-left: 1vw;
   padding-right: 1vw;
@@ -53,10 +53,11 @@ svg.notearea .playernote {
   font-size: 5vh;
   font-weight: 800;
   width: 100%;
-  height: 12vh;
+  height: 13vh;
   text-align: center;
   color: white;
   -webkit-text-stroke: 0.3vh black;
+  background-color: rgba(200,200,200,0.5);
 }
 .sentence {
   display: block;

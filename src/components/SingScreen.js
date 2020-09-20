@@ -8,7 +8,7 @@ class SingScreen extends Component {
   render() {
     return (
       <div className="singscreen" style={{backgroundImage: `url(${this.props.data.background})`}}>
-        <ScoreBar names={this.props.data.names} scores={this.props.data.scores}/>
+        <ScoreBar names={this.props.data.names} scores={this.props.data.scores} colors={this.props.data.colors} />
         <div className={"noteareas" + (this.props.data.names.length > 3 ? " twocolumn" : "")}>
           {this.props.data.names.map((names, index) => (
             <NoteArea

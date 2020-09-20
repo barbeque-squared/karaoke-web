@@ -16,6 +16,7 @@ class SvgNotes extends Component {
   }
   
   render() {
+    //~ console.log(this.props.notes);
     // TODO: render differently depending on style
     return (
       <>
@@ -24,7 +25,7 @@ class SvgNotes extends Component {
         <rect
           key={index}
           x={note.Start}
-          y={this.props.max - note.Tone - this.props.height}
+          y={this.props.min + this.props.max - note.Tone - this.props.height}
           ry={this.props.height}
           width={note.Length}
           height={2*this.props.height}

@@ -37,21 +37,6 @@ class NoteArea extends Component {
     }
   }
   
-  /*
-          {notes.filter(this.isSingable).map((note, index) => (
-            // TODO: y and height depend on difficulty (0.2 = Medium?)
-            <rect
-              key={index}
-              x={note.Start}
-              y={svgsize.max - note.Tone - 0.5}
-              ry="0.5"
-              width={note.Length}
-              height={1}
-              className={this.noteTypeToClass(note.NoteType)}
-            />
-          ))}
-          * */
-  
   render() {
     if (this.props.notes.Notes && this.props.notes.Notes.length) {
       let notes = this.props.notes.Notes
@@ -66,6 +51,7 @@ class NoteArea extends Component {
       
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")
+      //~ console.log(svgsize);
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
           <line x1={svgsize.start} y1={svgsize.min+1} x2={svgsize.end} y2={svgsize.min+1} />
@@ -74,16 +60,16 @@ class NoteArea extends Component {
           <line x1={svgsize.start} y1={svgsize.min+7} x2={svgsize.end} y2={svgsize.min+7} />
           <line x1={svgsize.start} y1={svgsize.min+9} x2={svgsize.end} y2={svgsize.min+9} />
           <line x1={svgsize.start} y1={svgsize.min+11} x2={svgsize.end} y2={svgsize.min+11} />
-          <SvgNotes notes={notes} max={svgsize.max} height={0.5} />
+          <SvgNotes notes={notes} min={svgsize.min} max={svgsize.max} height={0.5} />
           {this.props.playernotes.map((note, index) => (
-            // TODO: y and height depend on difficulty (0.2 = Medium?)
+            // TODO: y and height depend on difficulty (0.5 = Hard, 1=Medium, 1.5=Easy?)
             <rect
               key={index}
               x={note.Start}
-              y={svgsize.max - note.Tone - 0.5}
-              ry="0.5"
+              y={svgsize.min + svgsize.max - note.Tone - 0.3}
+              ry="0.3"
               width={note.Length}
-              height={1}
+              height={0.6}
               className="playernote"
             />
           ))}

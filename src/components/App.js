@@ -23,7 +23,7 @@ class App extends Component {
       scores: [1000, 0, 9000, 500, 20, 0],
       notes1: {},
       notes2: {},
-      playernotes: [{Notes: []}],
+      playernotes: [],
       sentence1: 'example lyrics 1',
       sentence2: 'next line lyrics 2'
     }

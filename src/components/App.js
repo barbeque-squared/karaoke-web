@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
+import Pusher from 'pusher-js';
 
 import SingScreen from './SingScreen';
 
@@ -34,8 +35,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //init Firebase
     this.initFirebase();
+    this.initPusher();
   }
   
   initFirebase() {
@@ -48,10 +49,20 @@ class App extends Component {
       database.ref('karaoke/notes2').on('value', (notes) => {this.setState({notes2: notes.val()})});
       database.ref('karaoke/sentence1').on('value', (text) => {this.setState({sentence1: text.val()})});
       database.ref('karaoke/sentence2').on('value', (text) => {this.setState({sentence2: text.val()})});
-      database.ref('karaoke/playernotes').on('value', (notes) => {this.setState({playernotes: notes.val()})});
+      //~ database.ref('karaoke/playernotes').on('value', (notes) => {this.setState({playernotes: notes.val()})});
     } catch (e) {
       console.error(e);
     }
+  }
+  
+  initPusher() {
+    const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
+      cluster: process.env.REACT_APP_PUSHER_CLUSTER,
+    })
+    const channel = pusher.subscribe('karaoke')
+    channel.bind('playernotes', (data) => {
+      this.setState({playernotes: data});
+    })
   }
 }
 

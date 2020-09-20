@@ -14,7 +14,7 @@ class SingScreen extends Component {
             <NoteArea
               key={index}
               notes={this.props.data.notes1}
-              playernotes={this.props.data.playernotes && this.props.data.playernotes[0] ? this.props.data.playernotes[0] : []}
+              playernotes={this.props.data.playernotes && this.props.data.playernotes[index] ? this.props.data.playernotes[index] : []}
             />
           ))}
         </div>

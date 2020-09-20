@@ -20,6 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      background: '',
       colors: [1],
       levels: [1],
       names: ['Player 1'],
@@ -46,6 +47,7 @@ class App extends Component {
       firebase.initializeApp(config);
       let database = firebase.database();
       // setup handlers
+      database.ref('karaoke/background').on('value', (d) => {this.setState({background: d.val()})});
       database.ref('karaoke/colors').on('value', (d) => {this.setState({colors: d.val()})});
       database.ref('karaoke/levels').on('value', (d) => {this.setState({levels: d.val()})});
       database.ref('karaoke/names').on('value', (d) => {this.setState({names: d.val()})});

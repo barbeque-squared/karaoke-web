@@ -7,7 +7,7 @@ import NoteArea from './NoteArea'
 class SingScreen extends Component {
   render() {
     return (
-      <>
+      <div className="singscreen" style={{backgroundImage: `url(${this.props.data.background})`}}>
         <ScoreBar names={this.props.data.names} scores={this.props.data.scores}/>
         <div className={"noteareas" + (this.props.data.names.length > 3 ? " twocolumn" : "")}>
           {this.props.data.names.map((names, index) => (
@@ -22,7 +22,7 @@ class SingScreen extends Component {
           <Sentence notes={this.props.data.notes1}/>
           <Sentence notes={this.props.data.notes2}/>
         </div>
-      </>
+      </div>
     );
   }
 }

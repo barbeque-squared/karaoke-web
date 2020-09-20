@@ -20,10 +20,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
-      scores: [1000, 0, 9000, 500, 20, 0],
+      colors: [1],
+      levels: [1],
+      names: ['Player 1'],
       notes1: [],
       notes2: [],
+      scores: [0],
       playernotes: []
     }
   }
@@ -44,12 +46,12 @@ class App extends Component {
       firebase.initializeApp(config);
       let database = firebase.database();
       // setup handlers
-      //~ database.ref('scores').on('value', (scores) => {this.setState({scores: scores.val()})});
-      database.ref('karaoke/notes1').on('value', (notes) => {this.setState({notes1: notes.val()})});
-      database.ref('karaoke/notes2').on('value', (notes) => {this.setState({notes2: notes.val()})});
-      database.ref('karaoke/sentence1').on('value', (text) => {this.setState({sentence1: text.val()})});
-      database.ref('karaoke/sentence2').on('value', (text) => {this.setState({sentence2: text.val()})});
-      //~ database.ref('karaoke/playernotes').on('value', (notes) => {this.setState({playernotes: notes.val()})});
+      database.ref('karaoke/colors').on('value', (d) => {this.setState({colors: d.val()})});
+      database.ref('karaoke/levels').on('value', (d) => {this.setState({levels: d.val()})});
+      database.ref('karaoke/names').on('value', (d) => {this.setState({names: d.val()})});
+      database.ref('karaoke/notes1').on('value', (d) => {this.setState({notes1: d.val()})});
+      database.ref('karaoke/notes2').on('value', (d) => {this.setState({notes2: d.val()})});
+      database.ref('karaoke/scores').on('value', (d) => {this.setState({scores: d.val()})});
     } catch (e) {
       console.error(e);
     }

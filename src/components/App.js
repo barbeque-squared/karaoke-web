@@ -21,11 +21,9 @@ class App extends Component {
     this.state = {
       names: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'],
       scores: [1000, 0, 9000, 500, 20, 0],
-      notes1: {},
-      notes2: {},
-      playernotes: [],
-      sentence1: 'example lyrics 1',
-      sentence2: 'next line lyrics 2'
+      notes1: [],
+      notes2: [],
+      playernotes: []
     }
   }
 

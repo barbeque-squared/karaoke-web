@@ -38,8 +38,8 @@ class NoteArea extends Component {
   }
   
   render() {
-    if (this.props.notes.Notes && this.props.notes.Notes.length) {
-      let notes = this.props.notes.Notes
+    if (this.props.notes && this.props.notes.length) {
+      let notes = this.props.notes
       // time start-end
       let start = notes[0].Start
       let end = notes[notes.length-1 ].Start + notes[notes.length-1].Length

@@ -25,6 +25,10 @@ class NoteArea extends Component {
     }
   }
   
+  isSingable(note) {
+    return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
+  }
+  
   noteTypeToClass(notetype) {
     switch (notetype) {
       case NoteType.NORMAL: return "normal"
@@ -51,13 +55,12 @@ class NoteArea extends Component {
   render() {
     if (this.props.notes.Notes && this.props.notes.Notes.length) {
       let notes = this.props.notes.Notes
-      let tones = notes.map(note => note.Tone)
-      // TODO: only use non-freestyle notes for min/max computation
       // time start-end
       let start = notes[0].Start
       let end = notes[notes.length-1 ].Start + notes[notes.length-1].Length
       
-      // tone min-max
+      // tone min-max: use only singable notes to compute this
+      let tones = notes.filter(this.isSingable).map(note => note.Tone)
       let min = Math.min(...tones)
       let max = Math.max(...tones)
       

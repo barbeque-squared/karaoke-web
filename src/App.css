@@ -10,10 +10,11 @@
   width: 100%;
   height: 9vh;
   display: flex;
+  justify-content: center;
 }
 
 .scorecard {
-  flex-basis: 100%;
+  flex-basis: 20%;
   text-align: center;
   overflow: hidden;
 }
@@ -42,10 +43,12 @@
 svg.notearea line {
   stroke-width: 0.05;
   stroke: gray;
+  opacity: 0.85;
 }
 
-svg.notearea .playernote {
-  fill: red;
+svg.notearea .normal,
+svg.notearea .golden {
+  opacity: 0.85;
 }
 
 /* SENTENCES */

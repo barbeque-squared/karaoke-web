@@ -15,6 +15,7 @@ class SingScreen extends Component {
               key={index}
               notes={this.props.data.notes1}
               playernotes={this.props.data.playernotes && this.props.data.playernotes[index] ? this.props.data.playernotes[index] : []}
+              color={this.props.data.colors[index]}
             />
           ))}
         </div>

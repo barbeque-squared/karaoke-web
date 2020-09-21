@@ -27,6 +27,7 @@ class App extends Component {
       notes1: [],
       notes2: [],
       scores: [0],
+      sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
       playernotes: []
     }
   }
@@ -54,6 +55,7 @@ class App extends Component {
       database.ref('karaoke/notes1').on('value', (d) => {this.setState({notes1: d.val()})});
       database.ref('karaoke/notes2').on('value', (d) => {this.setState({notes2: d.val()})});
       database.ref('karaoke/scores').on('value', (d) => {this.setState({scores: d.val()})});
+      database.ref('karaoke/sentenceinfo').on('value', (d) => {this.setState({sentenceinfo: d.val()})});
     } catch (e) {
       console.error(e);
     }

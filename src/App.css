@@ -30,7 +30,7 @@
 /* NOTE AREA */
 .noteareas {
   display: grid;
-  height: 78vh;
+  height: 75vh;
   gap: 1vw;
   padding-left: 1vw;
   padding-right: 1vw;
@@ -62,9 +62,19 @@ svg.notearea .golden {
   -webkit-text-stroke: 0.3vh black;
   background-color: rgba(200,200,200,0.5);
 }
-.sentence {
+div.sentence {
   display: block;
 }
-.sentence .freestyle {
+div.sentence .freestyle {
   font-style: italic;
+}
+
+/* TIMEBAR */
+div.timebar {
+  width: 100%;
+  height: calc(100% - 97vh);
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  text-align: center;
 }

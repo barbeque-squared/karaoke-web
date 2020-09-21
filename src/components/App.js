@@ -22,6 +22,7 @@ class App extends Component {
     this.state = {
       background: '',
       colors: [1],
+      currentbeat: -9999999,
       levels: [1],
       names: ['Player 1'],
       notes1: [],
@@ -50,6 +51,7 @@ class App extends Component {
       // setup handlers
       database.ref('karaoke/background').on('value', (d) => {this.setState({background: d.val()})});
       database.ref('karaoke/colors').on('value', (d) => {this.setState({colors: d.val()})});
+      database.ref('karaoke/currentbeat').on('value', (d) => {this.setState({currentbeat: d.val()})});
       database.ref('karaoke/levels').on('value', (d) => {this.setState({levels: d.val()})});
       database.ref('karaoke/names').on('value', (d) => {this.setState({names: d.val()})});
       database.ref('karaoke/notes1').on('value', (d) => {this.setState({notes1: d.val()})});

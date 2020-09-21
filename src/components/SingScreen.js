@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import Sentence from './Sentence'
 import ScoreBar from './ScoreBar'
 import NoteArea from './NoteArea'
+import TimeBar from './TimeBar'
 
 class SingScreen extends Component {
   render() {
@@ -23,6 +24,13 @@ class SingScreen extends Component {
         <div className="sentences">
           <Sentence notes={this.props.data.notes1}/>
           <Sentence notes={this.props.data.notes2}/>
+        </div>
+        <div className="timebar">
+          <TimeBar
+            currentBeat={this.props.data.currentbeat}
+            info={this.props.data.sentenceinfo}
+            color={this.props.data.colors[0]}
+          />
         </div>
       </div>
     );

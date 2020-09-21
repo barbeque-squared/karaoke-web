@@ -19,7 +19,6 @@ class SvgPlayerNotes extends Component {
     return (
       <>
       {this.props.notes.map((note, index) => (
-        // TODO: y and height depend on difficulty (0.2 = Medium?)
         <rect
           key={index}
           x={note.Start}

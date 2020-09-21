@@ -16,7 +16,6 @@ class TimeBar extends Component {
         preserveAspectRatio="none" className="timebar"
       >
         {this.props.info.sentences.map((sentence, index) => (
-          // TODO: y and height depend on difficulty (0.2 = Medium?)
           <rect
             key={index}
             x={sentence.Start}

@@ -36,8 +36,6 @@ class SvgNotes extends Component {
         </pattern>
         
         {this.props.notes.filter(this.isSingable).map((note, index) => (
-          // TODO: y and height depend on difficulty (0.2 = Medium?)
-          // TODO: overlay a golden rect instead of trying to pattern it?
           <rect
             key={index}
             x={note.Start}

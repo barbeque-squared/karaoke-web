@@ -11,12 +11,14 @@
   height: 9vh;
   display: flex;
   justify-content: center;
+  gap: 2vw;
 }
 
 .scorecard {
-  flex-basis: 20%;
+  flex-basis: 12%;
   text-align: center;
-  overflow: hidden;
+  border-bottom-left-radius: 1.7vw;
+  border-bottom-right-radius: 1.7vw;
 }
 
 .scorecard .name {
@@ -25,6 +27,7 @@
 }
 .scorecard .score {
   font-size: 5.5vh;
+  line-height: 5.5vh;
 }
 
 /* NOTE AREA */
@@ -41,9 +44,9 @@
 }
 
 svg.notearea line {
-  stroke-width: 0.05;
+  stroke-width: 0.04;
   stroke: gray;
-  opacity: 0.85;
+  opacity: 0.5;
 }
 
 svg.notearea .normal,

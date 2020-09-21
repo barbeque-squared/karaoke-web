@@ -4,15 +4,17 @@ import SvgNotes from './SvgNotes'
 import SvgPlayerNotes from './SvgPlayerNotes'
 import NoteType from '../constants/NoteType'
 
+const HEIGHT = 11
+
 class NoteArea extends Component {
   octave(min, max) {
     // ideally, diff between min and max = 12
-    if (max - min <= 12) {
-      let offset = 0.5 * (12 - (max - min))
+    if (max - min <= HEIGHT) {
+      let offset = 0.5 * (HEIGHT - (max - min))
       return {min: min - Math.floor(offset), max: max + Math.ceil(offset)}
     }
     // otherwise, just return the lowest octave
-    return {min: min, max: min + 12}
+    return {min: min, max: min + HEIGHT}
   }
   
   svgsize(start, end, min, max) {
@@ -56,15 +58,12 @@ class NoteArea extends Component {
       
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")
+      
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
-          <line x1={svgsize.start} y1={svgsize.min+1} x2={svgsize.end} y2={svgsize.min+1} />
-          <line x1={svgsize.start} y1={svgsize.min+3} x2={svgsize.end} y2={svgsize.min+3} />
-          <line x1={svgsize.start} y1={svgsize.min+5} x2={svgsize.end} y2={svgsize.min+5} />
-          <line x1={svgsize.start} y1={svgsize.min+7} x2={svgsize.end} y2={svgsize.min+7} />
-          <line x1={svgsize.start} y1={svgsize.min+9} x2={svgsize.end} y2={svgsize.min+9} />
-          <line x1={svgsize.start} y1={svgsize.min+11} x2={svgsize.end} y2={svgsize.min+11} />
-          
+          {[...Array(HEIGHT-2).keys()].map(n => (
+            <line key={n} x1={svgsize.start} y1={svgsize.min+n+1} x2={svgsize.end} y2 ={svgsize.min+n+1} />
+          ))}
           <SvgNotes
             notes={notes}
             min={svgsize.min}

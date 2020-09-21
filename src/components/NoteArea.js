@@ -41,14 +41,18 @@ class NoteArea extends Component {
   render() {
     if (this.props.notes && this.props.notes.length) {
       let notes = this.props.notes
-      // time start-end
-      let start = notes[0].Start
-      let end = notes[notes.length-1 ].Start + notes[notes.length-1].Length
       
       // tone min-max: use only singable notes to compute this
       let tones = notes.filter(this.isSingable).map(note => note.Tone)
+      if (tones.length === 0) {
+        return ( <></> )
+      }
       let min = Math.min(...tones)
       let max = Math.max(...tones)
+      
+      // time start-end
+      let start = notes[0].Start
+      let end = notes[notes.length-1 ].Start + notes[notes.length-1].Length
       
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")

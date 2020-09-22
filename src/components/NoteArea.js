@@ -7,12 +7,14 @@ import NoteType from '../constants/NoteType'
 const HEIGHT = 11
 
 class NoteArea extends Component {
+  // TODO: the octave computing needs improving
   octave(min, max) {
-    // ideally, diff between min and max = 12
-    if (max - min <= HEIGHT) {
+    console.log(min,max);
+    if (max - min < HEIGHT) {
       let offset = 0.5 * (HEIGHT - (max - min))
       return {min: min - Math.floor(offset), max: max + Math.ceil(offset)}
     }
+    // TODO: otherwise recurse?
     // otherwise, just return the lowest octave
     return {min: min, max: min + HEIGHT}
   }
@@ -57,11 +59,13 @@ class NoteArea extends Component {
       let end = notes[notes.length-1 ].Start + notes[notes.length-1].Length
       
       let svgsize = this.svgsize(start, end, min, max)
-      let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min].join(" ")
+      let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min + 1].join(" ")
+      
+      console.log(svgsize,viewbox, tones);
       
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
-          {[...Array(HEIGHT-2).keys()].map(n => (
+          {[...Array(HEIGHT).keys()].map(n => (
             <line key={n} x1={svgsize.start} y1={svgsize.min+n+1} x2={svgsize.end} y2 ={svgsize.min+n+1} />
           ))}
           <SvgNotes

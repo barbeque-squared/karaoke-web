@@ -5,6 +5,7 @@ import 'firebase/database';
 import Pusher from 'pusher-js';
 
 import SingScreen from './SingScreen';
+import LiveScoreStatus from '../constants/LiveScoreStatus';
 
 const config = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -29,7 +30,8 @@ class App extends Component {
       notes2: [],
       scores: [0],
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
-      playernotes: []
+      playernotes: [],
+      livescorestatus: LiveScoreStatus.CONNECTING,
     }
   }
 
@@ -40,8 +42,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.initFirebase();
-    this.initPusher();
+    this.initFirebase()
   }
   
   initFirebase() {
@@ -53,6 +54,7 @@ class App extends Component {
       database.ref('karaoke/colors').on('value', (d) => {this.setState({colors: d.val()})});
       database.ref('karaoke/currentbeat').on('value', (d) => {this.setState({currentbeat: d.val()})});
       database.ref('karaoke/levels').on('value', (d) => {this.setState({levels: d.val()})});
+      database.ref('karaoke/livecode').once('value', (d) => {this.initPusher(d.val())})
       database.ref('karaoke/names').on('value', (d) => {this.setState({names: d.val()})});
       database.ref('karaoke/notes1').on('value', (d) => {this.setState({notes1: d.val()})});
       database.ref('karaoke/notes2').on('value', (d) => {this.setState({notes2: d.val()})});
@@ -61,9 +63,14 @@ class App extends Component {
     } catch (e) {
       console.error(e);
     }
+    
   }
   
-  initPusher() {
+  initPusher(livecode) {
+    if (process.env.NODE_ENV !== 'development' && document.location.pathname !== livecode) {
+      this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED})
+      return
+    }
     const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
       cluster: process.env.REACT_APP_PUSHER_CLUSTER,
     })
@@ -71,6 +78,7 @@ class App extends Component {
     channel.bind('playernotes', (data) => {
       this.setState({playernotes: data});
     })
+    this.setState({livescorestatus: LiveScoreStatus.CONNECTED})
   }
 }
 

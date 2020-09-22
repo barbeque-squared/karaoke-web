@@ -5,6 +5,16 @@
   background-size: cover;
 }
 
+/* LIVESCORE INDICATOR */
+div.livescore {
+  position: fixed;
+  width: 6vh;
+  height: 6vh;
+  top: 0;
+  right: 0;
+  padding: 1vh;
+}
+
 /* SCORES */
 .scorebar {
   width: 100%;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+import LiveScoreIndicator from './LiveScoreIndicator'
 import Sentence from './Sentence'
 import ScoreBar from './ScoreBar'
 import NoteArea from './NoteArea'
@@ -9,6 +10,7 @@ class SingScreen extends Component {
   render() {
     return (
       <div className="singscreen" style={{backgroundImage: `url(${this.props.data.background})`}}>
+        <LiveScoreIndicator status={this.props.data.livescorestatus} />
         <ScoreBar names={this.props.data.names} scores={this.props.data.scores} colors={this.props.data.colors} />
         <div className={"noteareas" + (this.props.data.names.length > 3 ? " twocolumn" : "")}>
           {this.props.data.names.map((names, index) => (

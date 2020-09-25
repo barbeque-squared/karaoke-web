@@ -5,6 +5,36 @@
   background-size: cover;
 }
 
+/* SONGLIST */
+button.songlist {
+  position: fixed;
+  width: 9vh;
+  height: 9vh;
+  top: 1vh;
+  left: 0;
+  border: none;
+  font-size: 8vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-top-right-radius: 3vh;
+  border-bottom-right-radius: 3vh;
+  cursor: pointer;
+}
+
+
+.songbrowser .scrolltable {
+  max-height: calc(75vh - 100px);
+  overflow-y: scroll;
+}
+
+.songbrowser thead {
+  text-align: left;
+}
+
+.songbrowser tbody tr:nth-child(odd) {
+  background: #E5E5E5;
+}
+
 /* LIVESCORE INDICATOR */
 div.livescore {
   position: fixed;

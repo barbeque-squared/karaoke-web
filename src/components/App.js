@@ -30,6 +30,7 @@ class App extends Component {
       notes2: [],
       scores: [0],
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
+      songlist: [],
       playernotes: [],
       livescorestatus: LiveScoreStatus.CONNECTING,
     }
@@ -60,6 +61,7 @@ class App extends Component {
       database.ref('karaoke/notes2').on('value', (d) => {this.setState({notes2: d.val()})});
       database.ref('karaoke/scores').on('value', (d) => {this.setState({scores: d.val()})});
       database.ref('karaoke/sentenceinfo').on('value', (d) => {this.setState({sentenceinfo: d.val()})});
+      database.ref('karaoke/songlist').once('value', (d) => {this.setState({songlist: d.val()})});
     } catch (e) {
       console.error(e);
     }

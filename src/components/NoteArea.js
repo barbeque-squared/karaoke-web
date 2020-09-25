@@ -9,7 +9,6 @@ const HEIGHT = 11
 class NoteArea extends Component {
   // TODO: the octave computing needs improving
   octave(min, max) {
-    console.log(min,max);
     if (max - min < HEIGHT) {
       let offset = 0.5 * (HEIGHT - (max - min))
       return {min: min - Math.floor(offset), max: max + Math.ceil(offset)}
@@ -60,8 +59,6 @@ class NoteArea extends Component {
       
       let svgsize = this.svgsize(start, end, min, max)
       let viewbox = [svgsize.start, svgsize.min, svgsize.end - svgsize.start, svgsize.max - svgsize.min + 1].join(" ")
-      
-      console.log(svgsize,viewbox, tones);
       
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">

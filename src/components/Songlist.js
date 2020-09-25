@@ -44,8 +44,6 @@ class Songlist extends Component {
                     <th>Title</th>
                     <th title="Regular">R</th>
                     <th title="Instrumental">I</th>
-                    <th title="Lossless Regular">LR</th>
-                    <th title="Lossless Instrumental">LI</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,10 +51,8 @@ class Songlist extends Component {
                     <tr key={index}>
                       <td>{song.artist}</td>
                       <td>{song.title}</td>
-                      <td>{song.variants.includes(SongType.LOSSY) ? '●' : ''}</td>
-                      <td>{song.variants.includes(SongType.INSTRUMENTAL) ? '●' : ''}</td>
-                      <td>{song.variants.includes(SongType.LOSSLESS) ? '●' : ''}</td>
-                      <td>{song.variants.includes(SongType.LOSSLESS_INSTRUMENTAL) ? '●' : ''}</td>
+                      <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? '●' : ''}</td>
+                      <td>{song.variants.includes(SongType.INSTRUMENTAL) || song.variants.includes(SongType.LOSSLESS_INSTRUMENTAL) ? '●' : ''}</td>
                     </tr>
                   ))}
                 </tbody>

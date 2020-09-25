@@ -69,7 +69,7 @@ class App extends Component {
   }
   
   initPusher(livecode) {
-    if (process.env.NODE_ENV !== 'development' && document.location.pathname !== livecode) {
+    if (process.env.NODE_ENV !== 'development' && document.location.hash !== livecode) {
       this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED})
       return
     }

@@ -14,6 +14,11 @@ class SvgGoldenNotes extends Component {
   }
   
   render() {
+    let notes = this.props.notes.filter(note => note.NoteType === NoteType.GOLDEN)
+    if (notes.length === 0) {
+      return ( <></> )
+    }
+    
     let halfHeight = this.playerLevelToHalfHeight(this.props.level)
     return (
       <>
@@ -21,7 +26,7 @@ class SvgGoldenNotes extends Component {
           <line x1={0.5*halfHeight} y1="0" x2="0" y2="0" style={{stroke:'yellow', strokeWidth:1}} />
         </pattern>
         
-        {this.props.notes.filter(note => note.NoteType === NoteType.GOLDEN).map((note, index) => (
+        {notes.map((note, index) => (
           <rect
             key={index}
             x={note.Start}

@@ -14,8 +14,14 @@ class SvgPlayerNotes extends Component {
   }
   
   render() {
+    if (this.props.notes.length === 0) {
+      return ( <></> )
+    }
+    
     let baseColor = getColor(this.props.color).rgb()
+    let fill = baseColor.darken(0.5).string()
     let halfHeight = this.playerLevelToHalfHeight(this.props.level)
+    
     return (
       <>
       {this.props.notes.map((note, index) => (
@@ -27,7 +33,7 @@ class SvgPlayerNotes extends Component {
           width={note.Length}
           height={2*halfHeight}
           className={"playernote"}
-          fill={baseColor.darken(0.5).string()}
+          fill={fill}
         />
       ))}
       </>

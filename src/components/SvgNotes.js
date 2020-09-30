@@ -19,11 +19,19 @@ class SvgNotes extends Component {
   }
   
   render() {
+    let notes = this.props.notes.filter(this.isSingable)
+    if (notes.length === 0) {
+      return ( <></> )
+    }
+    
     let baseColor = getColor(this.props.color).rgb()
+    let fill = baseColor.lighten(0.8).string()
+    let stroke = baseColor.darken(0.1).string()
     let halfHeight = this.playerLevelToHalfHeight(this.props.level)
+    
     return (
       <>
-        {this.props.notes.filter(this.isSingable).map((note, index) => (
+        {notes.map((note, index) => (
           <rect
             key={index}
             x={note.Start}
@@ -32,8 +40,8 @@ class SvgNotes extends Component {
             width={note.Length}
             height={2*halfHeight}
             className="note"
-            fill={baseColor.lighten(0.8).string()}
-            stroke={baseColor.darken(0.1).string()}
+            fill={fill}
+            stroke={stroke}
             strokeWidth={0.2}
           />
         ))}

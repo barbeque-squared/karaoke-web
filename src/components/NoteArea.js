@@ -18,7 +18,7 @@ class NoteArea extends Component {
   }
   
   svgsize(start, end, min, max) {
-    let offset = Math.ceil(0.05*(end - start))
+    let offset = Math.ceil(0.02*(end - start))
     let octave = this.octave(min, max)
     return {
       start: start - offset,

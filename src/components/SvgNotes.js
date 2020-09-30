@@ -33,7 +33,7 @@ class SvgNotes extends Component {
             height={2*halfHeight}
             className="note"
             fill={baseColor.lighten(0.8).string()}
-            stroke={baseColor.lighten(0.5).string()}
+            stroke={baseColor.darken(0.1).string()}
             strokeWidth={0.2}
           />
         ))}

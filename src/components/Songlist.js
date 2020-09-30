@@ -10,7 +10,8 @@ class Songlist extends Component {
     super(props)
     this.state = {
       show: false,
-      songs: props.songs
+      songs: props.songs,
+      filter: ''
     }
   }
 
@@ -20,6 +21,10 @@ class Songlist extends Component {
 
   hide() {
     this.setState({show: false})
+  }
+  
+  updateFilter(event) {
+    this.setState({filter: event.target.value})
   }
 
   render() {
@@ -33,6 +38,7 @@ class Songlist extends Component {
         <Modal isOpen={this.state.show} onRequestClose={this.hide.bind(this)} contentLabel="Song list">
           <div className="songbrowser">
             <h2>Song browser</h2>
+            <input type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)} placeholder="Filter" />
             <button onClick={this.hide.bind(this)}>close</button>
             <form>
             </form>
@@ -47,7 +53,12 @@ class Songlist extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.songs.map((song, index) => (
+                  {this.props.songs
+                    .filter(song =>
+                      song.artist.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+                      song.title.toLowerCase().includes(this.state.filter.toLowerCase())
+                    )
+                    .map((song, index) => (
                     <tr key={index}>
                       <td>{song.artist}</td>
                       <td>{song.title}</td>

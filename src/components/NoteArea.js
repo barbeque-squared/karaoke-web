@@ -7,15 +7,13 @@ import NoteType from '../constants/NoteType'
 const HEIGHT = 11
 
 class NoteArea extends Component {
-  // TODO: the octave computing needs improving
   octave(min, max) {
     if (max - min < HEIGHT) {
       let offset = 0.5 * (HEIGHT - (max - min))
       return {min: min - Math.floor(offset), max: max + Math.ceil(offset)}
     }
-    // TODO: otherwise recurse?
-    // otherwise, just return the lowest octave
-    return {min: min, max: min + HEIGHT}
+    // otherwise, just return the entire min-max plus some margin
+    return {min: min - 1, max: max + 1}
   }
   
   svgsize(start, end, min, max) {
@@ -62,7 +60,7 @@ class NoteArea extends Component {
       
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
-          {[...Array(HEIGHT).keys()].map(n => (
+          {[...Array(max-min+1).keys()].map(n => (
             <line key={n} x1={svgsize.start} y1={svgsize.min+n+1} x2={svgsize.end} y2 ={svgsize.min+n+1} />
           ))}
           <SvgNotes

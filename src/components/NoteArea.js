@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import SvgNotes from './SvgNotes'
 import SvgPlayerNotes from './SvgPlayerNotes'
+import SvgGoldenNotes from './SvgGoldenNotes'
 import NoteType from '../constants/NoteType'
 
 const HEIGHT = 11
@@ -30,15 +31,6 @@ class NoteArea extends Component {
   isSingable(note) {
     return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
   }
-  
-  noteTypeToClass(notetype) {
-    switch (notetype) {
-      case NoteType.NORMAL: return "normal"
-      case NoteType.GOLDEN: return "golden"
-      default: return "normal"
-    }
-  }
-  
   render() {
     if (this.props.notes && this.props.notes.length) {
       let notes = this.props.notes
@@ -77,6 +69,13 @@ class NoteArea extends Component {
             max={svgsize.max}
             level={this.props.level}
             color={this.props.color}
+          />
+          
+          <SvgGoldenNotes
+            notes={notes}
+            min={svgsize.min}
+            max={svgsize.max}
+            level={this.props.level}
           />
         </svg>
       )

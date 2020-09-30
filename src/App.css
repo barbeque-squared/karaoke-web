@@ -89,8 +89,7 @@ svg.notearea line {
   opacity: 0.5;
 }
 
-svg.notearea .normal,
-svg.notearea .golden {
+svg.notearea .note {
   opacity: 0.85;
 }
 

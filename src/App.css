@@ -35,7 +35,15 @@ button.songlist {
   background: #E5E5E5;
 }
 
-/* LIVESCORE INDICATOR */
+/* LIVESCORE OR CHAT INDICATOR */
+div.livescore, div.chat {
+  position: fixed;
+  width: 6vh;
+  height: 6vh;
+  top: 0;
+  right: 0;
+  padding: 1vh;
+}
 div.livescore {
   position: fixed;
   width: 6vh;

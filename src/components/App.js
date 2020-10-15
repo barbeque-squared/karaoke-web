@@ -33,6 +33,7 @@ class App extends Component {
       songlist: [],
       playernotes: [],
       livescorestatus: LiveScoreStatus.CONNECTING,
+      microphone: true,
     }
   }
 
@@ -52,6 +53,7 @@ class App extends Component {
       let database = firebase.database();
       // setup handlers
       database.ref('karaoke/background').on('value', (d) => {this.setState({background: d.val()})});
+      database.ref('karaoke/microphone').on('value', d => {this.setState({microphone: d.val()})});
       database.ref('karaoke/colors').on('value', (d) => {this.setState({colors: d.val()})});
       database.ref('karaoke/currentbeat').on('value', (d) => {this.setState({currentbeat: d.val()})});
       database.ref('karaoke/levels').on('value', (d) => {this.setState({levels: d.val()})});

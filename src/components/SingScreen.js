@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 
+import ChatIndicator from './ChatIndicator'
 import LiveScoreIndicator from './LiveScoreIndicator'
+import LiveScoreStatus from '../constants/LiveScoreStatus'
 import Sentence from './Sentence'
 import ScoreBar from './ScoreBar'
 import NoteArea from './NoteArea'
@@ -12,6 +14,9 @@ class SingScreen extends Component {
     return (
       <div className="singscreen" style={{backgroundImage: `url(${this.props.data.background})`}}>
         <LiveScoreIndicator status={this.props.data.livescorestatus} />
+        {this.props.data.livescorestatus === LiveScoreStatus.CONNECTED && (
+          <ChatIndicator microphone={this.props.data.microphone} />
+        )}
         <Songlist songs={this.props.data.songlist} />
         <ScoreBar names={this.props.data.names} scores={this.props.data.scores} colors={this.props.data.colors} />
         <div className={"noteareas" + (this.props.data.names.length > 3 ? " twocolumn" : "")}>

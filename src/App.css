@@ -44,7 +44,7 @@ div.livescore, div.chat {
   right: 0;
   padding: 1vh;
   background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 3vh;
+  border-bottom-left-radius: 3vh;
 }
 
 /* SCORES */

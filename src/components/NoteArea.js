@@ -52,7 +52,7 @@ class NoteArea extends Component {
       
       return (
         <svg viewBox={viewbox} width="100%" height="100%" preserveAspectRatio="none" className="notearea">
-          {[...Array(max-min+1).keys()].map(n => (
+          {[...Array(svgsize.max-svgsize.min+1).keys()].map(n => (
             <line key={n} x1={svgsize.start} y1={svgsize.min+n+1} x2={svgsize.end} y2 ={svgsize.min+n+1} />
           ))}
           <SvgNotes

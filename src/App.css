@@ -43,14 +43,8 @@ div.livescore, div.chat {
   top: 0;
   right: 0;
   padding: 1vh;
-}
-div.livescore {
-  position: fixed;
-  width: 6vh;
-  height: 6vh;
-  top: 0;
-  right: 0;
-  padding: 1vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3vh;
 }
 
 /* SCORES */

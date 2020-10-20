@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
-import Pusher from 'pusher-js';
+//~ import Pusher from 'pusher-js';
 
 import SingScreen from './SingScreen';
 import LiveScoreStatus from '../constants/LiveScoreStatus';
@@ -75,13 +75,21 @@ class App extends Component {
       this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED})
       return
     }
-    const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
-      cluster: process.env.REACT_APP_PUSHER_CLUSTER,
-    })
-    const channel = pusher.subscribe('karaoke')
-    channel.bind('playernotes', (data) => {
-      this.setState({playernotes: data});
-    })
+    
+    // PUSHER CODE
+    //~ const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
+      //~ cluster: process.env.REACT_APP_PUSHER_CLUSTER,
+    //~ })
+    //~ const channel = pusher.subscribe('karaoke')
+    //~ channel.bind('playernotes', (data) => {
+      //~ this.setState({playernotes: data});
+    //~ })
+    
+    // ABLY CODE
+    const ably = new require('ably').Realtime(process.env.REACT_APP_ABLY_KEY)
+    const channel = ably.channels.get('karaoke')
+    channel.subscribe('sing', (message) => {this.setState({playernotes: message.data})})
+
     this.setState({livescorestatus: LiveScoreStatus.CONNECTED})
   }
 }

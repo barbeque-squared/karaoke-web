@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <SingScreen data={this.state} />
+      <SingScreen {...this.state} />
     );
   }
 

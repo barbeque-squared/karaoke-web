@@ -26,9 +26,9 @@ class SvgGoldenNotes extends Component {
           <line x1={0.5*halfHeight} y1="0" x2="0" y2="0" style={{stroke:'yellow', strokeWidth:1}} />
         </pattern>
         
-        {notes.map((note, index) => (
+        {notes.map((note) => (
           <rect
-            key={index}
+            key={note.Start}
             x={note.Start}
             y={this.props.min + this.props.max - note.Tone - halfHeight}
             ry={halfHeight}

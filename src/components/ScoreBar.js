@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import ScoreCard from './ScoreCard'
 
-class ScoreBar extends Component {
+class ScoreBar extends PureComponent {
   render() {
     return (
       <div className="scorebar">

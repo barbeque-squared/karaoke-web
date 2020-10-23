@@ -7,7 +7,7 @@ class Sentence extends Component {
     if (this.props.notes) {
       return (
         <div className="sentence">
-          {this.props.notes.map((note, index) => (<SentenceNote key={index} note={note} />))}
+          {this.props.notes.map((note) => (<SentenceNote key={note.Start} note={note} />))}
         </div>
       )
     }

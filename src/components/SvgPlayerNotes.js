@@ -24,9 +24,9 @@ class SvgPlayerNotes extends Component {
     
     return (
       <>
-      {this.props.notes.map((note, index) => (
+      {this.props.notes.map((note) => (
         <rect
-          key={index}
+          key={note.Start}
           x={note.Start}
           y={this.props.min + this.props.max - note.Tone - halfHeight}
           ry={halfHeight}

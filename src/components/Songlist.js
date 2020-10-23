@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import Modal from 'react-modal'
 
 import SongType from '../constants/SongType'
 
 Modal.setAppElement('body')
 
-class Songlist extends Component {
+class Songlist extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {

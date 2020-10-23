@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import getColor from '../helpers/getColor'
 
 const HEIGHT=1
 
-class TimeBar extends Component {
+class TimeBar extends PureComponent {
   render() {
     let color = getColor(this.props.color).rgb().string()
     let startbeat = this.props.info.startbeat

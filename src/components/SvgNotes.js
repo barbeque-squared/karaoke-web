@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import NoteType from '../constants/NoteType'
 import ULevel from '../constants/ULevel'
 import getColor from '../helpers/getColor'
 
-class SvgNotes extends Component {
+class SvgNotes extends PureComponent {
   isSingable(note) {
     return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
   }
@@ -31,9 +31,9 @@ class SvgNotes extends Component {
     
     return (
       <>
-        {notes.map((note, index) => (
+        {notes.map((note) => (
           <rect
-            key={index}
+            key={note.Start}
             x={note.Start}
             y={this.props.min + this.props.max - note.Tone - halfHeight}
             ry={halfHeight}

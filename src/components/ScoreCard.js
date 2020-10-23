@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import getColor from '../helpers/getColor'
 
-class ScoreCard extends Component {
+class ScoreCard extends PureComponent {
   render() {
     let baseColor = getColor(this.props.color).rgb()
     let bgColor = baseColor.fade(0.5).string()

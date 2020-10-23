@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
-class ChatIndicator extends Component {
+class ChatIndicator extends PureComponent {
   render() {
     if (this.props.microphone) {
       return(null)

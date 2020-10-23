@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import NoteType from '../constants/NoteType'
 import ULevel from '../constants/ULevel'
 
-class SvgGoldenNotes extends Component {
+class SvgGoldenNotes extends PureComponent {
   playerLevelToHalfHeight(level) {
     switch(level) {
       case ULevel.NORMAL: return 0.5;

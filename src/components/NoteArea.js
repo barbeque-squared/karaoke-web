@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import SvgNotes from './SvgNotes'
 import SvgPlayerNotes from './SvgPlayerNotes'
@@ -7,7 +7,7 @@ import NoteType from '../constants/NoteType'
 
 const HEIGHT = 11
 
-class NoteArea extends Component {
+class NoteArea extends PureComponent {
   octave(min, max) {
     if (max - min < HEIGHT) {
       let offset = 0.5 * (HEIGHT - (max - min))

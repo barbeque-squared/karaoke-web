@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import SentenceNote from './SentenceNote'
 
-class Sentence extends Component {
+class Sentence extends PureComponent {
   render() {
     if (this.props.notes) {
       return (

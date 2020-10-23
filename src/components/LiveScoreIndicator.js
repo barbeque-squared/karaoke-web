@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import LiveScoreStatus from '../constants/LiveScoreStatus'
 
-class LiveScoreIndicator extends Component {
+class LiveScoreIndicator extends PureComponent {
   render() {
     if (this.props.status !== LiveScoreStatus.NOT_CONNECTED) {
       return(null)

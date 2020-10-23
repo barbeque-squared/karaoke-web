@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
 import ULevel from '../constants/ULevel'
 import getColor from '../helpers/getColor'
 
-class SvgPlayerNotes extends Component {
+class SvgPlayerNotes extends PureComponent {
   playerLevelToHalfHeight(level) {
     switch(level) {
       case ULevel.NORMAL: return 0.42;
@@ -14,6 +14,9 @@ class SvgPlayerNotes extends Component {
   }
   
   render() {
+    if (this.props.notes === null) {
+      return ( <> </> )
+    }
     if (this.props.notes.length === 0) {
       return ( <></> )
     }

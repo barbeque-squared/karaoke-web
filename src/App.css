@@ -113,6 +113,10 @@ div.sentence .freestyle {
   font-style: italic;
 }
 
+div.sentence .past {
+  color: yellow;
+}
+
 /* TIMEBAR */
 div.timebar {
   width: 100%;

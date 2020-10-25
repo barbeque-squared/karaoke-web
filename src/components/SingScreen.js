@@ -31,8 +31,8 @@ class SingScreen extends PureComponent {
           ))}
         </div>
         <div className="sentences">
-          <Sentence notes={this.props.notes1}/>
-          <Sentence notes={this.props.notes2}/>
+          <Sentence notes={this.props.notes1} beat={this.props.currentbeat}/>
+          <Sentence notes={this.props.notes2} beat={-99999999999999}/>
         </div>
         <div className="timebar">
           <TimeBar

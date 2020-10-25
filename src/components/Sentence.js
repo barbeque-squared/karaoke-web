@@ -7,7 +7,11 @@ class Sentence extends PureComponent {
     if (this.props.notes) {
       return (
         <div className="sentence">
-          {this.props.notes.map((note) => (<SentenceNote key={note.Start} note={note} />))}
+          {this.props.notes.map((note) => (<SentenceNote
+            key={note.Start}
+            note={note}
+            past={note.Start < this.props.beat}
+          />))}
         </div>
       )
     }

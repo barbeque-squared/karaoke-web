@@ -15,9 +15,12 @@ class SentenceNote extends PureComponent {
   }
   
   render() {
-    // TODO: render differently depending on style
+    var className=this.noteTypeToClass(this.props.note.NoteType)
+    if (this.props.past) {
+      className += " past"
+    }
     return (
-      <span className={this.noteTypeToClass(this.props.note.NoteType)}>
+      <span className={className}>
         {this.props.note.Text}
       </span>
     )

@@ -1,24 +1,24 @@
 import React, {PureComponent} from 'react'
 
-import SentenceNote from './SentenceNote'
+import SentenceActiveNote from './SentenceActiveNote'
+import SentenceFutureNote from './SentenceFutureNote'
+import SentencePastNote from './SentencePastNote'
 
 class Sentence extends PureComponent {
   render() {
-    if (this.props.notes) {
-      return (
-        <div className="sentence">
-          {this.props.notes.map((note) => (<SentenceNote
-            key={note.Start}
-            note={note}
-            past={note.Start < this.props.beat}
-          />))}
-        </div>
-      )
-    }
-    
     return (
-      <div className="sentence"></div>
-    );
+      <div className="sentence">
+        {this.props.notes.map(note => {
+          if (note.Start > this.props.beat) {
+            return <SentenceFutureNote key={note.Start} note={note} />
+          } else if (note.Start + note.Length < this.props.beat) {
+            return <SentencePastNote key={note.Start} note={note} />
+          } else {
+            return <SentenceActiveNote key={note.Start} note={note} beat={this.props.beat} />
+          }
+        })}
+      </div>
+    )
   }
 }
 

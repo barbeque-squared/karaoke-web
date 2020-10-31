@@ -6,7 +6,7 @@ class SentenceIndicator extends PureComponent {
   constructor(props) {
     super(props)
     this.initialPercentage = this.props.percentage
-    this.shouldRender = this.props.percentage < 85
+    this.shouldRender = this.props.percentage < 90
     // scaled to 90% max because the item itself is 10% wide
     this.rangeMultiplier = 90 / (100 - this.props.percentage)
   }

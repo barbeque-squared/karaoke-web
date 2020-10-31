@@ -21,6 +21,7 @@ class App extends Component {
     super(props)
     this.state = {
       background: '',
+      bpm: 0.0,
       colors: [1],
       currentbeat: -9999999,
       levels: [1],

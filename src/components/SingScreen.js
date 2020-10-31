@@ -4,6 +4,7 @@ import ChatIndicator from './ChatIndicator'
 import LiveScoreIndicator from './LiveScoreIndicator'
 import LiveScoreStatus from '../constants/LiveScoreStatus'
 import Sentence from './Sentence'
+import SentenceWithIndicator from './SentenceWithIndicator'
 import ScoreBar from './ScoreBar'
 import NoteArea from './NoteArea'
 import Songlist from './Songlist'
@@ -31,7 +32,7 @@ class SingScreen extends PureComponent {
           ))}
         </div>
         <div className="sentences">
-          <Sentence notes={this.props.notes1} beat={this.props.currentbeat}/>
+          <SentenceWithIndicator notes={this.props.notes1} beat={this.props.currentbeat} bpm={this.props.bpm} color={this.props.colors[0]} />
           <Sentence notes={this.props.notes2} beat={-99999999999999}/>
         </div>
         <div className="timebar">

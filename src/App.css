@@ -106,6 +106,17 @@ svg.notearea .note {
   -webkit-text-stroke: 0.3vh black;
   background-color: rgba(200,200,200,0.5);
 }
+div.sentence-with-indicator {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+div.sentence-indicator-container {
+  padding: 1vh;
+}
+div.sentence-indicator {
+  width: 10%;
+  height: 4vh;
+}
 div.sentence {
   display: block;
 }

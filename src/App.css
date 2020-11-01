@@ -5,8 +5,8 @@
   background-size: cover;
 }
 
-/* SONGLIST */
-button.songlist {
+/* MENU */
+button.menu {
   position: fixed;
   width: 9vh;
   height: 9vh;
@@ -20,18 +20,25 @@ button.songlist {
   border-bottom-right-radius: 3vh;
   cursor: pointer;
 }
+button.close {
+  float: right;
+  border: none;
+  font-size: 20px;
+  background: none;
+  cursor: pointer;
+}
 
-
-.songbrowser .scrolltable {
+/* SONGLIST */
+div.songbrowser .scrolltable {
   max-height: calc(75vh - 100px);
   overflow-y: scroll;
 }
 
-.songbrowser thead {
+div.songbrowser thead {
   text-align: left;
 }
 
-.songbrowser tbody tr:nth-child(odd) {
+div.songbrowser tbody tr:nth-child(odd) {
   background: #E5E5E5;
 }
 

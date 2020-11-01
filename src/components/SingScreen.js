@@ -6,8 +6,8 @@ import LiveScoreStatus from '../constants/LiveScoreStatus'
 import Sentence from './Sentence'
 import SentenceWithIndicator from './SentenceWithIndicator'
 import ScoreBar from './ScoreBar'
+import Menu from './Menu'
 import NoteArea from './NoteArea'
-import Songlist from './Songlist'
 import TimeBar from './TimeBar'
 
 class SingScreen extends PureComponent {
@@ -18,7 +18,7 @@ class SingScreen extends PureComponent {
         {this.props.livescorestatus === LiveScoreStatus.CONNECTED && (
           <ChatIndicator microphone={this.props.microphone} />
         )}
-        <Songlist songs={this.props.songlist} />
+        <Menu songs={this.props.songlist} />
         <ScoreBar names={this.props.names} scores={this.props.scores} colors={this.props.colors} />
         <div className={"noteareas" + (this.props.names.length > 3 ? " twocolumn" : "")}>
           {this.props.names.map((names, index) => (

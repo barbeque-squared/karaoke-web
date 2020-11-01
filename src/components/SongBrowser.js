@@ -47,7 +47,7 @@ class SongBrowser extends PureComponent {
                   (
                     song.artist.toLowerCase().includes(this.state.filter.toLowerCase()) ||
                     song.title.toLowerCase().includes(this.state.filter.toLowerCase())
-                  ) && this.state.onlyInstrumental ? this.isInstrumental(song) : true
+                  ) && (this.state.onlyInstrumental ? this.isInstrumental(song) : true)
                 )
                 .map((song) => (
                 <tr key={song.artist+song.title}>

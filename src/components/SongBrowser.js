@@ -6,7 +6,8 @@ class SongBrowser extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      filter: ''
+      filter: '',
+      onlyInstrumental: false
     }
   }
 
@@ -14,12 +15,22 @@ class SongBrowser extends PureComponent {
     this.setState({filter: event.target.value})
   }
 
+  updateInstrumental(event) {
+    this.setState({onlyInstrumental: event.target.checked})
+  }
+
+  isInstrumental(song) {
+    return song.variants.includes(SongType.INSTRUMENTAL) || song.variants.includes(SongType.LOSSLESS_INSTRUMENTAL)
+  }
+
   render() {
     return (
       <div className="songbrowser">
         <input type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)} placeholder="Filter" />
-        <form>
-        </form>
+        <label>
+          <input type="checkbox" checked={this.state.onlyInstrumental} onChange={this.updateInstrumental.bind(this)} />
+          Only instrumental
+        </label>
         <div className="scrolltable">
           <table>
             <thead>
@@ -33,15 +44,17 @@ class SongBrowser extends PureComponent {
             <tbody>
               {this.props.songs
                 .filter(song =>
-                  song.artist.toLowerCase().includes(this.state.filter.toLowerCase()) ||
-                  song.title.toLowerCase().includes(this.state.filter.toLowerCase())
+                  (
+                    song.artist.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+                    song.title.toLowerCase().includes(this.state.filter.toLowerCase())
+                  ) && this.state.onlyInstrumental ? this.isInstrumental(song) : true
                 )
                 .map((song) => (
                 <tr key={song.artist+song.title}>
                   <td>{song.artist}</td>
                   <td>{song.title}</td>
                   <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? '●' : ''}</td>
-                  <td>{song.variants.includes(SongType.INSTRUMENTAL) || song.variants.includes(SongType.LOSSLESS_INSTRUMENTAL) ? '●' : ''}</td>
+                  <td>{this.isInstrumental(song) ? '●' : ''}</td>
                 </tr>
               ))}
             </tbody>

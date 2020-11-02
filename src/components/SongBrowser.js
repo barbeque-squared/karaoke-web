@@ -53,8 +53,8 @@ class SongBrowser extends PureComponent {
                 <tr key={song.artist+song.title}>
                   <td>{song.artist}</td>
                   <td>{song.title}</td>
-                  <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? '●' : ''}</td>
-                  <td>{this.isInstrumental(song) ? '●' : ''}</td>
+                  <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? <span title='Regular'>●</span> : ''}</td>
+                  <td>{this.isInstrumental(song) ? <span title='Instrumental'>●</span> : ''}</td>
                 </tr>
               ))}
             </tbody>

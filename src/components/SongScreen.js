@@ -1,9 +1,14 @@
-import {PureComponent} from 'react'
+import React, {PureComponent} from 'react'
+
+import SongBrowser from './SongBrowser'
 
 class SongScreen extends PureComponent {
   render() {
-    // currently empty, because we cannot get any information from USDX
-    return null
+    return (
+      <div className="songscreen">
+        <SongBrowser songs={this.props.songs} />
+      </div>
+    )
   }
 }
 

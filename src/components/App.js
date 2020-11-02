@@ -34,7 +34,7 @@ class App extends Component {
       notes1: [],
       notes2: [],
       noteScores: [0],
-      screen: 'score',
+      screen: 'song',
       scores: [0],
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
       songlist: [],

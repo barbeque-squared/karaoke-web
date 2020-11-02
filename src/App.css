@@ -53,6 +53,27 @@ button.close {
   padding: 0.75vh 1.5vw;
 }
 
+/* SONG SCREEN */
+.songscreen {
+  position: fixed;
+  top: 10vh;
+  height: 70vh;
+  width: 70vw;
+  left: 10vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10vh;
+  padding: 5vh;
+  color: white;
+  font-size: 2vh;
+/*
+  scrollbar-color: white rgba(1, 1, 1, 0.3);
+  scrollbar-width: 1vw;
+*/
+}
+.songscreen div.songbrowser tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 /* LEVEL ICONS */
 span.levelicon {
   display: inline-block;
@@ -85,6 +106,10 @@ span.levelicon.unknown {
 div.songbrowser .scrolltable {
   max-height: calc(75vh - 100px);
   overflow-y: scroll;
+}
+
+div.songbrowser table {
+  border-collapse: collapse;
 }
 
 div.songbrowser thead {

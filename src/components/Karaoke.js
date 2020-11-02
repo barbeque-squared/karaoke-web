@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 
+import ScoreScreen from './ScoreScreen'
 import SingScreen from './SingScreen'
 import SongScreen from './SongScreen'
 import Menu from './Menu'
@@ -9,6 +10,9 @@ class Karaoke extends PureComponent {
     return (
       <div className="karaoke" style={{backgroundImage: `url(${this.props.background})`}}>
         <Menu songs={this.props.songlist} />
+        {this.props.screen === 'score' && (
+          <ScoreScreen {...this.props} />
+        )}
         {this.props.screen === 'sing' && (
           <SingScreen {...this.props} />
         )}

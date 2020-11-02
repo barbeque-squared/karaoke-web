@@ -6,19 +6,17 @@ import LiveScoreStatus from '../constants/LiveScoreStatus'
 import Sentence from './Sentence'
 import SentenceWithIndicator from './SentenceWithIndicator'
 import ScoreBar from './ScoreBar'
-import Menu from './Menu'
 import NoteArea from './NoteArea'
 import TimeBar from './TimeBar'
 
 class SingScreen extends PureComponent {
   render() {
     return (
-      <div className="singscreen" style={{backgroundImage: `url(${this.props.background})`}}>
+      <>
         <LiveScoreIndicator status={this.props.livescorestatus} />
         {this.props.livescorestatus === LiveScoreStatus.CONNECTED && (
           <ChatIndicator microphone={this.props.microphone} />
         )}
-        <Menu songs={this.props.songlist} />
         <ScoreBar names={this.props.names} scores={this.props.scores} colors={this.props.colors} />
         <div className={"noteareas" + (this.props.names.length > 3 ? " twocolumn" : "")}>
           {this.props.names.map((names, index) => (
@@ -42,7 +40,7 @@ class SingScreen extends PureComponent {
             color={this.props.colors[0]}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

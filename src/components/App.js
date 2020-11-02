@@ -3,7 +3,7 @@ import '../App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 
-import SingScreen from './SingScreen';
+import Karaoke from './Karaoke';
 import LiveScoreStatus from '../constants/LiveScoreStatus';
 
 const config = {
@@ -28,6 +28,7 @@ class App extends Component {
       names: ['Player 1'],
       notes1: [],
       notes2: [],
+      screen: 'song',
       scores: [0],
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
       songlist: [],
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     return (
-      <SingScreen {...this.state} />
+      <Karaoke {...this.state} />
     );
   }
 

@@ -1,5 +1,8 @@
 import React, {PureComponent} from 'react'
 
+import ChatIndicator from './ChatIndicator'
+import LiveScoreIndicator from './LiveScoreIndicator'
+import LiveScoreStatus from '../constants/LiveScoreStatus'
 import ScoreScreen from './ScoreScreen'
 import SingScreen from './SingScreen'
 import SongScreen from './SongScreen'
@@ -10,6 +13,11 @@ class Karaoke extends PureComponent {
     return (
       <div className="karaoke" style={{backgroundImage: `url(${this.props.background})`}}>
         <Menu songs={this.props.songlist} />
+        <LiveScoreIndicator status={this.props.livescorestatus} />
+        {this.props.livescorestatus === LiveScoreStatus.CONNECTED && (
+          <ChatIndicator microphone={this.props.microphone} />
+        )}
+
         {this.props.screen === 'score' && (
           <ScoreScreen {...this.props} />
         )}

@@ -1,8 +1,5 @@
 import React, {PureComponent} from 'react'
 
-import ChatIndicator from './ChatIndicator'
-import LiveScoreIndicator from './LiveScoreIndicator'
-import LiveScoreStatus from '../constants/LiveScoreStatus'
 import Sentence from './Sentence'
 import SentenceWithIndicator from './SentenceWithIndicator'
 import ScoreBar from './ScoreBar'
@@ -13,10 +10,6 @@ class SingScreen extends PureComponent {
   render() {
     return (
       <>
-        <LiveScoreIndicator status={this.props.livescorestatus} />
-        {this.props.livescorestatus === LiveScoreStatus.CONNECTED && (
-          <ChatIndicator microphone={this.props.microphone} />
-        )}
         <ScoreBar names={this.props.names} scores={this.props.scores} colors={this.props.colors} />
         <div className={"noteareas" + (this.props.names.length > 3 ? " twocolumn" : "")}>
           {this.props.names.map((names, index) => (

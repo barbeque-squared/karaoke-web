@@ -35,22 +35,36 @@ button.close {
   height: 50vh;
   width: 70vw;
   left: 10vw;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 4vh;
   padding: 5vh;
   color: white;
   font-size: 3vh;
+  overflow: auto;
 }
 .scorescreen p {
-  font-size: 2.5vh;
   text-align: center;
+}
+.scorescreen p b {
+  font-size: 3.5vh;
 }
 .scorescreen table {
   margin: auto;
 }
+.scorescreen table thead {
+  text-align: left;
+}
 .scorescreen table th,
 .scorescreen table td {
-  padding: 0.75vh 1.5vw;
+  padding: 0.75vh 1.2vw;
+}
+.scorescreen table th.level,
+.scorescreen table td.level {
+  padding: 0;
+}
+.scorescreen table th.player,
+.scorescreen table td.player {
+  padding-left: 0;
 }
 
 /* SONG SCREEN */
@@ -60,8 +74,8 @@ button.close {
   height: 70vh;
   width: 70vw;
   left: 10vw;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4vh;
   padding: 5vh;
   color: white;
   font-size: 2vh;

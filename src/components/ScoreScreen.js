@@ -8,13 +8,14 @@ class ScoreScreen extends PureComponent {
     return (
       <div className="scorescreen">
         <p>
-          {this.props.title}<br/>
+          <b>{this.props.title}</b><br/>
           by {this.props.artist}
         </p>
         <table>
           <thead>
             <tr>
-              <th>Player</th>
+              <th className="level"><span title="Difficulty">L</span></th>
+              <th className="player">Player</th>
               <th>Notes</th>
               <th>Golden</th>
               <th>Line</th>
@@ -25,12 +26,10 @@ class ScoreScreen extends PureComponent {
             {this.props.names.map((name, index) => (
               <tr
                 key={name}
-                style={{color: getColor(this.props.colors[index]).rgb().lighten(0.7).string()}}
+                style={{color: getColor(this.props.colors[index]).rgb().lighten(0.85).string()}}
               >
-                <td>
-                  <LevelIcon level={this.props.levels[index]} />
-                  {name}
-                </td>
+                <td className="level"><LevelIcon level={this.props.levels[index]} /></td>
+                <td className="player">{name}</td>
                 <td>{this.props.noteScores[index]}</td>
                 <td>{this.props.goldenScores[index]}</td>
                 <td>{this.props.lineScores[index]}</td>

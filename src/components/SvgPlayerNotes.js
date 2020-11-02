@@ -6,7 +6,7 @@ import getColor from '../helpers/getColor'
 class SvgPlayerNotes extends PureComponent {
   playerLevelToHalfHeight(level) {
     switch(level) {
-      case ULevel.NORMAL: return 0.42;
+      case ULevel.MEDIUM: return 0.42;
       case ULevel.HARD: return 0.22;
       case ULevel.EASY: return 0.92;
       default: return 0.42;

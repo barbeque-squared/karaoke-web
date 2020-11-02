@@ -11,7 +11,7 @@ class SvgNotes extends PureComponent {
   
   playerLevelToHalfHeight(level) {
     switch(level) {
-      case ULevel.NORMAL: return 0.5;
+      case ULevel.MEDIUM: return 0.5;
       case ULevel.HARD: return 0.3;
       case ULevel.EASY: return 1;
       default: return 0.5;

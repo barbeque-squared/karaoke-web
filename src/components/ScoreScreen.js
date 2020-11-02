@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 
+import LevelIcon from './LevelIcon'
 import getColor from '../helpers/getColor'
 
 class ScoreScreen extends PureComponent {
@@ -22,7 +23,10 @@ class ScoreScreen extends PureComponent {
                 key={name}
                 style={{color: getColor(this.props.colors[index]).rgb().lighten(0.7).string()}}
               >
-                <td>{name}</td>
+                <td>
+                  <LevelIcon level={this.props.levels[index]} />
+                  {name}
+                </td>
                 <td>{this.props.noteScores[index]}</td>
                 <td>{this.props.goldenScores[index]}</td>
                 <td>{this.props.lineScores[index]}</td>

@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/database';
 
 import Karaoke from './Karaoke';
+import ULevel from '../constants/ULevel';
 import LiveScoreStatus from '../constants/LiveScoreStatus';
 
 const config = {
@@ -25,7 +26,7 @@ class App extends Component {
       colors: [1],
       currentbeat: -9999999,
       goldenScores: [0],
-      levels: [1],
+      levels: [ULevel.MEDIUM],
       lineScores: [0],
       md5: '',
       names: ['Player 1'],

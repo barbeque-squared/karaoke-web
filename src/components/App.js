@@ -21,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      artist: '4EverfreeBrony',
       background: '',
       bpm: 0.0,
       colors: [1],
@@ -40,6 +41,7 @@ class App extends Component {
       playernotes: [],
       livescorestatus: LiveScoreStatus.CONNECTED,
       microphone: true,
+      title: 'A really really really long title (Instrumental) (Lossless) (dev version'
     }
   }
 

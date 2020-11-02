@@ -7,6 +7,10 @@ class ScoreScreen extends PureComponent {
   render() {
     return (
       <div className="scorescreen">
+        <p>
+          {this.props.title}<br/>
+          by {this.props.artist}
+        </p>
         <table>
           <thead>
             <tr>

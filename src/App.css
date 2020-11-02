@@ -41,6 +41,10 @@ button.close {
   color: white;
   font-size: 3vh;
 }
+.scorescreen p {
+  font-size: 2.5vh;
+  text-align: center;
+}
 .scorescreen table {
   margin: auto;
 }

@@ -28,13 +28,26 @@ button.close {
   cursor: pointer;
 }
 
+/* SETTINGS */
+div.settings div.mlk {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
 /* SCORES */
 .scorescreen {
-  position: fixed;
+  position: absolute;
+/*
   top: 20vh;
   height: 50vh;
   width: 70vw;
   left: 10vw;
+*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  max-heigt: 80vh;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 4vh;
   padding: 5vh;
@@ -49,7 +62,7 @@ button.close {
   font-size: 3.5vh;
 }
 .scorescreen table {
-  margin: auto;
+  white-space: nowrap;
 }
 .scorescreen table thead {
   text-align: left;
@@ -65,6 +78,23 @@ button.close {
 .scorescreen table th.player,
 .scorescreen table td.player {
   padding-left: 0;
+}
+/* last one is bigger to allow submit button */
+.scorescreen table th:last-child {
+  min-width: 10vw;
+}
+
+/* SCORE SUBMITTING */
+button.score-submit {
+  padding: .4vh 1vw;
+  color: white;
+  background-color: dodgerblue;
+  margin-left: 1vh;
+  border: white 1px solid;
+  font-variant: small-caps;
+  font-size: 2vh;
+  border-radius: .2vh;
+  cursor: pointer;
 }
 
 /* SONG SCREEN */

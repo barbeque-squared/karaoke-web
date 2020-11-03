@@ -1,9 +1,25 @@
 import React, {PureComponent} from 'react'
 
 import LevelIcon from './LevelIcon'
+import ScoreSubmitter from './ScoreSubmitter'
 import getColor from '../helpers/getColor'
 
+const LOCAL_STORAGE_MLK_KEY = 'mlk'
+
 class ScoreScreen extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: 'Player 1'
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem(LOCAL_STORAGE_MLK_KEY)) {
+      this.setState({username: JSON.parse(localStorage.getItem(LOCAL_STORAGE_MLK_KEY)).mlkusername})
+    }
+  }
+
   render() {
     return (
       <div className="scorescreen">
@@ -33,7 +49,18 @@ class ScoreScreen extends PureComponent {
                 <td>{this.props.noteScores[index]}</td>
                 <td>{this.props.goldenScores[index]}</td>
                 <td>{this.props.lineScores[index]}</td>
-                <td>{this.props.scores[index]}</td>
+                <td>
+                  {this.props.scores[index]}
+                  {name === this.state.username && this.props.md5 !== '' && (
+                    <ScoreSubmitter
+                      level={this.props.levels[index]}
+                      noteScores={this.props.noteScores[index]}
+                      goldenScores={this.props.goldenScores[index]}
+                      lineScores={this.props.lineScores[index]}
+                      md5={this.props.md5}
+                    />
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

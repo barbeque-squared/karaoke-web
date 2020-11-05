@@ -41,8 +41,8 @@ class Settings extends PureComponent {
           <img src="/mlk-96x96.png" alt="My Little Karaoke logo" />
           <div>
             <p>
-              If you want to submit scores to the <a href="https://www.mylittlekaraoke.com/highscores/">My Little Karaoke leaderboard</a>,
-              enter your details here (<i>case sensitive</i>).
+              If you want to submit highscores to the <a href="https://www.mylittlekaraoke.com/highscores/">My Little Karaoke leaderboard</a>,
+              enter your details here.
             </p>
             <label>
               Username: <input type="text" name="mlkusername" onChange={this.update.bind(this)} value={this.state.mlkusername} />
@@ -59,6 +59,12 @@ class Settings extends PureComponent {
               title="Click this if you no longer want your username/password saved"
               onClick={this.delete.bind(this)}
             >Delete</button>
+            <hr />
+            <p><i><small>
+              Highscores are submitted through a third-party service, the source of which is available at <a href="https://github.com/barbeque-squared/vercel-api2">github.com/barbeque-squared/vercel-api2</a>.
+              Only enter your details if you trust that service.
+              For technical reasons, they cannot be submitted to the leaderboards directly.
+            </small></i></p>
           </div>
         </div>
       </div>

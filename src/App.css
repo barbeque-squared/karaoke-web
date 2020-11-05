@@ -37,12 +37,6 @@ div.settings div.mlk {
 /* SCORES */
 .scorescreen {
   position: absolute;
-/*
-  top: 20vh;
-  height: 50vh;
-  width: 70vw;
-  left: 10vw;
-*/
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -99,20 +93,17 @@ button.score-submit {
 
 /* SONG SCREEN */
 .songscreen {
-  position: fixed;
-  top: 10vh;
-  height: 70vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 70vw;
-  left: 10vw;
-  background-color: rgba(0, 0, 0, 0.8);
+  heigt: 70vh;
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 4vh;
   padding: 5vh;
   color: white;
   font-size: 2vh;
-/*
-  scrollbar-color: white rgba(1, 1, 1, 0.3);
-  scrollbar-width: 1vw;
-*/
 }
 .songscreen div.songbrowser tbody tr:nth-child(odd) {
   background: rgba(0, 0, 0, 0.2);

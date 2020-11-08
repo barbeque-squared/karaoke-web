@@ -51,7 +51,7 @@ class ScoreScreen extends PureComponent {
                 <td>{this.props.lineScores[index]}</td>
                 <td>
                   {this.props.scores[index]}
-                  {name === this.state.username && this.props.md5 !== '' && (
+                  {this.props.canSubmit && name === this.state.username && this.props.md5 !== '' && (
                     <ScoreSubmitter
                       level={this.props.levels[index]}
                       noteScores={this.props.noteScores[index]}
@@ -65,6 +65,11 @@ class ScoreScreen extends PureComponent {
             ))}
           </tbody>
         </table>
+        {!this.props.canSubmit && this.state.username !== 'Player 1' && this.props.md5 !== '' && (
+          <p className='score-submit-disabled'>
+            You can not submit scores right now
+          </p>
+        )}
       </div>
     )
   }

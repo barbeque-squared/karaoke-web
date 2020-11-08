@@ -90,6 +90,9 @@ button.score-submit {
   border-radius: .2vh;
   cursor: pointer;
 }
+p.score-submit-disabled {
+  font-size: 2vh;
+}
 
 /* LEVEL ICONS */
 span.levelicon {

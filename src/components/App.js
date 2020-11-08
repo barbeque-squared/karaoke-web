@@ -24,6 +24,7 @@ class App extends Component {
       artist: '',
       background: '',
       bpm: 0.0,
+      canSubmit: false,
       colors: [1],
       currentbeat: -9999999,
       goldenScores: [0],
@@ -62,6 +63,11 @@ class App extends Component {
       // setup handlers
       database.ref('karaoke/background').on('value', d => this.setState({background: d.val()}))
       database.ref('karaoke/songlist').once('value', d => this.setState({songlist: d.val()}))
+      database.ref('karaoke/livecode').once('value', d => {
+        if (d.val() === window.location.hash) {
+          this.setState({canSubmit: true})
+        }
+      })
       database.ref('karaoke/websocket').once('value', d => this.initSocket(d.val()))
     } catch (e) {
       console.error(e);

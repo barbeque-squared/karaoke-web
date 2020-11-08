@@ -76,7 +76,7 @@ class App extends Component {
   
   initSocket(url) {
     const socket = new WebSocket(url)
-    socket.addEventListener('message', event => this.setState(JSON.parse(event.data)))
+    socket.onmessage = (event => this.setState(JSON.parse(event.data)))
   }
 }
 

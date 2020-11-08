@@ -60,9 +60,9 @@ class App extends Component {
       firebase.initializeApp(config);
       let database = firebase.database();
       // setup handlers
-      database.ref('karaoke/background').on('value', (d) => {this.setState({background: d.val()})});
-      database.ref('karaoke/songlist').once('value', (d) => {this.setState({songlist: d.val()})});
-      database.ref('karaoke/websocket').once('value', (d) => {this.initSocket(d.val())})
+      database.ref('karaoke/background').on('value', d => this.setState({background: d.val()}))
+      database.ref('karaoke/songlist').once('value', d => this.setState({songlist: d.val()}))
+      database.ref('karaoke/websocket').once('value', d => this.initSocket(d.val()))
     } catch (e) {
       console.error(e);
     }
@@ -70,7 +70,7 @@ class App extends Component {
   
   initSocket(url) {
     const socket = new WebSocket(url)
-    socket.addEventListener('message', (event) => {this.setState(JSON.parse(event.data))})
+    socket.addEventListener('message', event => this.setState(JSON.parse(event.data)))
   }
 }
 

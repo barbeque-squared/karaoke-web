@@ -40,7 +40,7 @@ class App extends Component {
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
       songlist: [],
       playernotes: [],
-      livescorestatus: LiveScoreStatus.CONNECTED,
+      livescorestatus: LiveScoreStatus.CONNECTING,
       microphone: true,
       title: ''
     }
@@ -76,6 +76,9 @@ class App extends Component {
   
   initSocket(url) {
     const socket = new WebSocket(url)
+    socket.onerror = (_ => this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED}))
+    socket.onclose = (_ => this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED}))
+    socket.onopen = (_ => this.setState({livescorestatus: LiveScoreStatus.CONNECTED}))
     socket.onmessage = (event => this.setState(JSON.parse(event.data)))
   }
 }

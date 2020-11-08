@@ -162,6 +162,9 @@ div.livescore, div.chat {
   padding: 1vh;
   background-color: rgba(0, 0, 0, 0.4);
   border-bottom-left-radius: 3vh;
+  font-size: 5vh;
+  color: white;
+  text-align: center;
 }
 
 /* SCORES */

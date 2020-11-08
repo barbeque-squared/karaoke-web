@@ -91,24 +91,6 @@ button.score-submit {
   cursor: pointer;
 }
 
-/* SONG SCREEN */
-.songscreen {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70vw;
-  heigt: 70vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 4vh;
-  padding: 5vh;
-  color: white;
-  font-size: 2vh;
-}
-.songscreen div.songbrowser tbody tr:nth-child(odd) {
-  background: rgba(0, 0, 0, 0.2);
-}
-
 /* LEVEL ICONS */
 span.levelicon {
   display: inline-block;
@@ -137,7 +119,23 @@ span.levelicon.unknown {
   background-color: blue;
 }
 
-/* SONGLIST */
+/* SONG BROWSER */
+div.songbrowser {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  heigt: 70vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 4vh;
+  padding: 5vh;
+  color: white;
+  font-size: 2vh;
+}
+div.songbrowser tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.2);
+}
 div.songbrowser .scrolltable {
   max-height: calc(75vh - 100px);
   overflow-y: scroll;
@@ -150,9 +148,8 @@ div.songbrowser table {
 div.songbrowser thead {
   text-align: left;
 }
-
 div.songbrowser tbody tr:nth-child(odd) {
-  background: #E5E5E5;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* LIVESCORE OR CHAT INDICATOR */

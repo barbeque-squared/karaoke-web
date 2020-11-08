@@ -5,7 +5,7 @@ import LiveScoreIndicator from './LiveScoreIndicator'
 import LiveScoreStatus from '../constants/LiveScoreStatus'
 import ScoreScreen from './ScoreScreen'
 import SingScreen from './SingScreen'
-import SongScreen from './SongScreen'
+import SongBrowser from './SongBrowser'
 import Menu from './Menu'
 
 class Karaoke extends PureComponent {
@@ -26,7 +26,7 @@ class Karaoke extends PureComponent {
           <SingScreen {...this.props} />
         )}
         {this.props.screen === 'song' && (
-          <SongScreen songs={this.props.songlist} />
+          <SongBrowser songs={this.props.songlist} />
         )}
       </div>
     );

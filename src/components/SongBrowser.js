@@ -24,6 +24,7 @@ class SongBrowser extends PureComponent {
   }
 
   render() {
+    if (!this.props.visible) {return null}
     return (
       <div className="songbrowser">
         <input type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)} placeholder="Filter" />

@@ -25,9 +25,7 @@ class Karaoke extends PureComponent {
         {this.props.screen === 'sing' && (
           <SingScreen {...this.props} />
         )}
-        {this.props.screen === 'song' && (
-          <SongBrowser songs={this.props.songlist} />
-        )}
+        <SongBrowser songs={this.props.songlist} visible={this.props.screen === 'song'} />
       </div>
     );
   }

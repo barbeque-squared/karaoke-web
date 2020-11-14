@@ -65,11 +65,6 @@ class ScoreScreen extends PureComponent {
             ))}
           </tbody>
         </table>
-        {!this.props.canSubmit && this.state.username !== 'Player 1' && this.props.md5 !== '' && (
-          <p className='score-submit-disabled'>
-            You can not submit scores right now
-          </p>
-        )}
       </div>
     )
   }

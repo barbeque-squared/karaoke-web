@@ -152,6 +152,11 @@ div.songbrowser tbody tr:nth-child(odd) {
   background: rgba(0, 0, 0, 0.3);
 }
 
+/* LANGUAGE ICON */
+div.songbrowser tbody img.language {
+  height: 2vh;
+}
+
 /* LIVESCORE OR CHAT INDICATOR */
 div.livescore, div.chat {
   position: fixed;

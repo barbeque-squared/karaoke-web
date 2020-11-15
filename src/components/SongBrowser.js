@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 
 import SongType from '../constants/SongType'
+import LanguageIcon from './LanguageIcon'
 
 class SongBrowser extends PureComponent {
   constructor(props) {
@@ -53,7 +54,7 @@ class SongBrowser extends PureComponent {
                 .map((song) => (
                 <tr key={song.artist+song.title}>
                   <td>{song.artist}</td>
-                  <td>{song.title}</td>
+                  <td>{song.title} <LanguageIcon language={song.language} /></td>
                   <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? <span title='Regular'>●</span> : ''}</td>
                   <td>{this.isInstrumental(song) ? <span title='Instrumental'>●</span> : ''}</td>
                 </tr>

@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 
 import About from './About'
+import Mumble from './Mumble'
 import Settings from './Settings'
 
 Modal.setAppElement('body')
@@ -36,10 +37,12 @@ class Menu extends PureComponent {
           <Tabs>
             <TabList>
               <Tab>Settings</Tab>
+              <Tab>Mumble</Tab>
               <Tab>About</Tab>
               <button className="close" title="Close" onClick={this.hide.bind(this)}>X</button>
             </TabList>
             <TabPanel><Settings /></TabPanel>
+            <TabPanel><Mumble /></TabPanel>
             <TabPanel><About /></TabPanel>
           </Tabs>
         </Modal>

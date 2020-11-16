@@ -38,6 +38,7 @@ class SongBrowser extends PureComponent {
             <thead>
               <tr>
                 <th>Artist</th>
+                <th></th>
                 <th>Title</th>
                 <th title="Regular">R</th>
                 <th title="Instrumental">I</th>
@@ -54,7 +55,8 @@ class SongBrowser extends PureComponent {
                 .map((song) => (
                 <tr key={song.artist+song.title}>
                   <td>{song.artist}</td>
-                  <td>{song.title} <LanguageIcon language={song.language} /></td>
+                  <td><LanguageIcon language={song.language} /></td>
+                  <td>{song.title}</td>
                   <td>{song.variants.includes(SongType.LOSSY) || song.variants.includes(SongType.LOSSLESS) ? <span title='Regular'>●</span> : ''}</td>
                   <td>{this.isInstrumental(song) ? <span title='Instrumental'>●</span> : ''}</td>
                 </tr>

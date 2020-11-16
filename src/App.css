@@ -41,7 +41,7 @@ div.settings div.mlk {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 80vw;
-  max-heigt: 80vh;
+  max-height: 80vh;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 4vh;
   padding: 5vh;
@@ -129,7 +129,7 @@ div.songbrowser {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70vw;
-  heigt: 70vh;
+  height: 70vh;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 4vh;
   padding: 5vh;
@@ -137,7 +137,7 @@ div.songbrowser {
   font-size: 2vh;
 }
 div.songbrowser .scrolltable {
-  max-height: calc(75vh - 100px);
+  max-height: calc(65vh);
   overflow-y: scroll;
 }
 

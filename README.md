@@ -9,3 +9,6 @@ It uses Google Firebase for the initial bootstrapping, make sure these keys are 
 ## Commands
 
 * `yarn start` - run the application in development mode
+* `yarn build` - build production
+* `yarn transfer` - rsync the build folder. Set `deploy_path "myserver:/where/you/want/it"` in `.yarnrc`
+* `yarn deploy` - build + transfer in one command

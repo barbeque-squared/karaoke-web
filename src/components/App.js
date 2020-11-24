@@ -48,7 +48,9 @@ class App extends Component {
 
   render() {
     return (
-      <Karaoke {...this.state} />
+      <React.StrictMode>
+        <Karaoke {...this.state} />
+      </React.StrictMode>
     );
   }
 

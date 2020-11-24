@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "transfer": "rsync --archive --delete build/ $npm_config_deploy_path",
-    "deploy": "yarn build && yarn transfer",
+    "deploy": "yarn firebase deploy && yarn transfer",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

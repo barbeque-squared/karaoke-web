@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 import LevelIcon from './LevelIcon'
 import ScoreSubmitter from './ScoreSubmitter'
@@ -68,6 +69,21 @@ class ScoreScreen extends PureComponent {
       </div>
     )
   }
+}
+
+ScoreScreen.propTypes = {
+  artist: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+
+  canSubmit: PropTypes.bool,
+  md5: PropTypes.string,
+  
+  colors: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  names: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  scores: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  noteScores: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  goldenScores: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  lineScores: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 }
 
 export default ScoreScreen

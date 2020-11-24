@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 import ULevel from '../constants/ULevel'
 
@@ -30,6 +31,10 @@ class LevelIcon extends PureComponent {
       </span>
     )
   }
+}
+
+LevelIcon.propTypes = {
+  level: PropTypes.oneOf([ULevel.EASY, ULevel.MEDIUM, ULevel.HARD]).isRequired
 }
 
 export default LevelIcon

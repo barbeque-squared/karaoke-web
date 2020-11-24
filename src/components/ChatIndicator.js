@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 class ChatIndicator extends PureComponent {
   render() {
@@ -16,6 +17,10 @@ class ChatIndicator extends PureComponent {
       </div>
     );
   }
+}
+
+ChatIndicator.propTypes = {
+  microphone: PropTypes.bool.isRequired
 }
 
 export default ChatIndicator

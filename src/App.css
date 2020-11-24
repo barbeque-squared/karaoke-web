@@ -10,13 +10,12 @@ button.menu {
   position: fixed;
   width: 9vh;
   height: 9vh;
-  top: 1vh;
+  top: 0;
   left: 0;
   border: none;
   font-size: 8vh;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  border-top-right-radius: 3vh;
   border-bottom-right-radius: 3vh;
   cursor: pointer;
 }

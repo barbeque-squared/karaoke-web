@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 import getColor from '../helpers/getColor'
 
@@ -14,6 +15,12 @@ class ScoreCard extends PureComponent {
       </div>
     );
   }
+}
+
+ScoreCard.propTypes = {
+  color: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 }
 
 export default ScoreCard

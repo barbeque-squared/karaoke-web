@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 
 import Czech from 'language-icons/icons/cs.svg'
 import Dutch from 'language-icons/icons/nl.svg'
@@ -44,6 +45,10 @@ class LanguageIcon extends PureComponent {
     console.log('Unknown language: ' + this.props.language)
     return ' ?'+this.props.language
   }
+}
+
+LanguageIcon.propTypes = {
+  language: PropTypes.string.isRequired
 }
 
 export default LanguageIcon

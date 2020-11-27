@@ -1,0 +1,12 @@
+.Schedule table{
+  border-collapse: collapse;
+}
+.Schedule table td,
+.Schedule table th {
+  padding: .02vh 1vw;
+  border: 1px solid;
+}
+.Schedule table td.help {
+  cursor: help;
+  text-decoration: underline dotted;
+}

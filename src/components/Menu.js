@@ -6,6 +6,7 @@ import 'react-tabs/style/react-tabs.css'
 import About from './About'
 import Mumble from './Mumble'
 import Settings from './Settings'
+import Schedule from './schedule/Schedule'
 
 Modal.setAppElement('body')
 
@@ -36,13 +37,15 @@ class Menu extends PureComponent {
         <Modal isOpen={this.state.show} onRequestClose={this.hide.bind(this)} contentLabel="Menu">
           <Tabs>
             <TabList>
-              <Tab>Settings</Tab>
+              <Tab>Schedule</Tab>
               <Tab>Mumble</Tab>
+              <Tab>Settings</Tab>
               <Tab>About</Tab>
               <button className="close" title="Close" onClick={this.hide.bind(this)}>X</button>
             </TabList>
-            <TabPanel><Settings /></TabPanel>
+            <TabPanel><Schedule schedule={this.props.schedule} /></TabPanel>
             <TabPanel><Mumble /></TabPanel>
+            <TabPanel><Settings /></TabPanel>
             <TabPanel><About /></TabPanel>
           </Tabs>
         </Modal>

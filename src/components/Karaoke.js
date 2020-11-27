@@ -13,7 +13,7 @@ class Karaoke extends PureComponent {
   render() {
     return (
       <div className="karaoke" style={{backgroundImage: `url(${this.props.background})`}}>
-        <Menu />
+        <Menu schedule={this.props.schedule} />
         
         <LiveScoreIndicator status={this.props.livescorestatus} />
         {this.props.livescorestatus === LiveScoreStatus.CONNECTED && (

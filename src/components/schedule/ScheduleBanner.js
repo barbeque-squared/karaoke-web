@@ -5,7 +5,7 @@ import './ScheduleBanner.css'
 
 class ScheduleBanner extends PureComponent {
   localFormat(str) {
-    return Temporal.Instant.from(str).toLocaleString()
+    return Temporal.Instant.from(str).toLocaleString('en-GB', {weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: 'numeric'})
   }
 
   utcFormat(str) {

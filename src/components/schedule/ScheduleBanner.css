@@ -14,6 +14,7 @@
 
 .ScheduleBanner h1 {
   margin: 0;
+  white-space: nowrap;
 }
 
 .ScheduleBanner h1 .help {

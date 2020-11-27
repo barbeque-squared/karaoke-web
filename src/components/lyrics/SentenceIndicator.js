@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 
-import getColor from '../helpers/getColor'
+import getColor from '../../helpers/getColor'
 
 class SentenceIndicator extends PureComponent {
   constructor(props) {

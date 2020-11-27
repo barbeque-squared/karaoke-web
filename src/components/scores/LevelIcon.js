@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
-import ULevel from '../constants/ULevel'
+import ULevel from '../../constants/ULevel'
 
 class LevelIcon extends PureComponent {
   playerLevelToLetter(level) {

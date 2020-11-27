@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react'
 
-import Sentence from './Sentence'
-import SentenceWithIndicator from './SentenceWithIndicator'
-import ScoreBar from './ScoreBar'
-import NoteArea from './NoteArea'
+import Sentence from './lyrics/Sentence'
+import SentenceWithIndicator from './lyrics/SentenceWithIndicator'
+import ScoreBar from './scores/ScoreBar'
+import NoteArea from './notes/NoteArea'
 import TimeBar from './TimeBar'
 
 class SingScreen extends PureComponent {

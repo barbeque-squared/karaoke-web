@@ -5,7 +5,7 @@ import LiveScoreIndicator from './LiveScoreIndicator'
 import LiveScoreStatus from '../constants/LiveScoreStatus'
 import ScoreScreen from './ScoreScreen'
 import SingScreen from './SingScreen'
-import SongBrowser from './SongBrowser'
+import SongBrowser from './songs/SongBrowser'
 import Menu from './Menu'
 
 class Karaoke extends PureComponent {

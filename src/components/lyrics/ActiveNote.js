@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 
-import SentenceFutureNote from './SentenceFutureNote'
-import SentencePastNote from './SentencePastNote'
+import FutureNote from './FutureNote'
+import PastNote from './PastNote'
 
 // splits the note into a past note and a future note
-class SentenceActiveNote extends PureComponent {
+class ActiveNote extends PureComponent {
   render() {
     const note = this.props.note
     const trimmedText = note.Text.trim()
@@ -13,10 +13,10 @@ class SentenceActiveNote extends PureComponent {
 
     const actualCharsPast = Math.ceil(fraction * trimmedText.length)
     if (actualCharsPast === 0) {
-      return (<SentenceFutureNote note={note} />)
+      return (<FutureNote note={note} />)
     }
     if (actualCharsPast === trimmedText.length) {
-      return (<SentencePastNote note={note} />)
+      return (<PastNote note={note} />)
     }
     
     const leadingWhitespaces = note.Text.length - note.Text.trimStart().length
@@ -25,11 +25,11 @@ class SentenceActiveNote extends PureComponent {
     const futureNote = {...note, Text: note.Text.substring(totalCharsPast)}
     return (
       <>
-        <SentencePastNote note={pastNote} />
-        <SentenceFutureNote note={futureNote} />
+        <PastNote note={pastNote} />
+        <FutureNote note={futureNote} />
       </>
     )
   }
 }
 
-export default SentenceActiveNote
+export default ActiveNote

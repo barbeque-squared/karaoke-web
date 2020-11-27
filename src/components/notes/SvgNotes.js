@@ -1,9 +1,14 @@
 import React, {PureComponent} from 'react'
 
-import NoteType from '../constants/NoteType'
-import ULevel from '../constants/ULevel'
+import NoteType from '../../constants/NoteType'
+import ULevel from '../../constants/ULevel'
+import getColor from '../../helpers/getColor'
 
-class SvgGoldenNotes extends PureComponent {
+class SvgNotes extends PureComponent {
+  isSingable(note) {
+    return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
+  }
+  
   playerLevelToHalfHeight(level) {
     switch(level) {
       case ULevel.MEDIUM: return 0.5;
@@ -14,18 +19,18 @@ class SvgGoldenNotes extends PureComponent {
   }
   
   render() {
-    let notes = this.props.notes.filter(note => note.NoteType === NoteType.GOLDEN)
+    let notes = this.props.notes.filter(this.isSingable)
     if (notes.length === 0) {
       return ( <></> )
     }
     
+    let baseColor = getColor(this.props.color).rgb()
+    let fill = baseColor.lighten(0.8).string()
+    let stroke = baseColor.darken(0.1).string()
     let halfHeight = this.playerLevelToHalfHeight(this.props.level)
+    
     return (
       <>
-        <pattern id="golden" width={halfHeight} height={halfHeight} patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
-          <line x1={0.5*halfHeight} y1="0" x2="0" y2="0" style={{stroke:'yellow', strokeWidth:1}} />
-        </pattern>
-        
         {notes.map((note) => (
           <rect
             key={note.Start}
@@ -34,8 +39,10 @@ class SvgGoldenNotes extends PureComponent {
             ry={halfHeight}
             width={note.Length}
             height={2*halfHeight}
-            className="golden"
-            fill='url(#golden)'
+            className="note"
+            fill={fill}
+            stroke={stroke}
+            strokeWidth={0.2}
           />
         ))}
       </>
@@ -43,4 +50,4 @@ class SvgGoldenNotes extends PureComponent {
   }
 }
 
-export default SvgGoldenNotes
+export default SvgNotes

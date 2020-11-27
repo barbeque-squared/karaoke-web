@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
-import LevelIcon from './LevelIcon'
-import ScoreSubmitter from './ScoreSubmitter'
+import LevelIcon from './scores/LevelIcon'
+import ScoreSubmitter from './scores/ScoreSubmitter'
 import getColor from '../helpers/getColor'
 
 const LOCAL_STORAGE_MLK_KEY = 'mlk'

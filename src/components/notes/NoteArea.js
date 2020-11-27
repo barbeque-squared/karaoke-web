@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react'
 import SvgNotes from './SvgNotes'
 import SvgPlayerNotes from './SvgPlayerNotes'
 import SvgGoldenNotes from './SvgGoldenNotes'
-import NoteType from '../constants/NoteType'
+import NoteType from '../../constants/NoteType'
 
 const HEIGHT = 11
 

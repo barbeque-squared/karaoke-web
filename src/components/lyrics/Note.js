@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
 
-import NoteType from '../constants/NoteType'
+import NoteType from '../../constants/NoteType'
 
-class SentenceNote extends PureComponent {
+class Note extends PureComponent {
   noteTypeToClass(notetype) {
     switch (notetype) {
       case NoteType.NORMAL:
@@ -24,4 +24,4 @@ class SentenceNote extends PureComponent {
   }
 }
 
-export default SentenceNote
+export default Note

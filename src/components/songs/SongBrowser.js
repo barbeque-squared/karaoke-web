@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 
-import SongType from '../constants/SongType'
+import SongType from '../../constants/SongType'
 import LanguageIcon from './LanguageIcon'
 
 class SongBrowser extends PureComponent {

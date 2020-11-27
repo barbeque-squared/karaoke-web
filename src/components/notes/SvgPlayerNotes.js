@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 
-import ULevel from '../constants/ULevel'
-import getColor from '../helpers/getColor'
+import ULevel from '../../constants/ULevel'
+import getColor from '../../helpers/getColor'
 
 class SvgPlayerNotes extends PureComponent {
   playerLevelToHalfHeight(level) {

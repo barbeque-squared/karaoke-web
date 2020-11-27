@@ -1,0 +1,22 @@
+.ScheduleBanner {
+  height: 10vh;
+  position: absolute;
+  left: 50%;
+  top: 3vh;
+  transform: translate(-50%, 0);
+  border-radius: 1vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 2vh;
+  text-align: center;
+  padding: 1vh 2vw;
+}
+
+.ScheduleBanner h1 {
+  margin: 0;
+}
+
+.ScheduleBanner h1 .help {
+  cursor: help;
+  text-decoration: underline dotted;
+}

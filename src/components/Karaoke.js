@@ -7,6 +7,7 @@ import ScoreScreen from './ScoreScreen'
 import SingScreen from './SingScreen'
 import SongBrowser from './songs/SongBrowser'
 import Menu from './Menu'
+import ScheduleBanner from './schedule/ScheduleBanner'
 
 class Karaoke extends PureComponent {
   render() {
@@ -24,6 +25,9 @@ class Karaoke extends PureComponent {
         )}
         {this.props.screen === 'sing' && (
           <SingScreen {...this.props} />
+        )}
+        {this.props.screen === 'song' && (
+          <ScheduleBanner schedule={this.props.schedule} />
         )}
         <SongBrowser songs={this.props.songlist} visible={this.props.screen === 'song'} />
       </div>

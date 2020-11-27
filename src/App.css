@@ -126,7 +126,7 @@ div.songbrowser {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
   width: 70vw;
   height: 70vh;
   background-color: rgba(0, 0, 0, 0.7);

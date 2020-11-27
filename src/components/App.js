@@ -35,6 +35,7 @@ class App extends Component {
       notes1: [],
       notes2: [],
       noteScores: [0],
+      schedule: [],
       screen: 'song',
       scores: [0],
       sentenceinfo: {sentences: [], startbeat: 0, totalbeats: 0},
@@ -64,6 +65,7 @@ class App extends Component {
       let database = firebase.database();
       // setup handlers
       database.ref('karaoke/background').on('value', d => this.setState({background: d.val()}))
+      database.ref('karaoke/schedule').once('value', d => this.setState({schedule: d.val()}))
       database.ref('karaoke/songlist').once('value', d => this.setState({songlist: d.val()}))
       database.ref('karaoke/livecode').once('value', d => {
         if (d.val() === window.location.hash) {

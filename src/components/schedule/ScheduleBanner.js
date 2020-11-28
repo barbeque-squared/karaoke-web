@@ -12,13 +12,18 @@ class ScheduleBanner extends PureComponent {
     return Temporal.Instant.from(str).toString()
   }
 
+  ended(session) {
+    const end = Temporal.Instant.from(session.start).add(Temporal.Duration.from(session.duration))
+    const now = Temporal.now.instant()
+    return Temporal.Instant.compare(end, now) < 1
+  }
+
   render() {
-    if (this.props.schedule.length) {
-      // TODO: filter out ended sessions, but that depends on string parsing
-      const nextSession = this.props.schedule[0]
+    const sessions = this.props.schedule.filter(s => !this.ended(s))
+    if (sessions.length) {
       return (
         <div className={'ScheduleBanner'}>
-          <h1>Upcoming session: <span className={'help'} title={'UTC: ' + this.utcFormat(nextSession.start)}>{this.localFormat(nextSession.start)}</span></h1>
+          <h1>Upcoming session: <span className={'help'} title={'UTC: ' + this.utcFormat(sessions[0].start)}>{this.localFormat(sessions[0].start)}</span></h1>
           <p>See the menu for the full schedule, and how to participate</p>
         </div>
       )
@@ -29,6 +34,7 @@ class ScheduleBanner extends PureComponent {
 
 ScheduleBanner.propTypes = {
   schedule: PropTypes.arrayOf(PropTypes.shape({
+    duration: PropTypes.string.isRequired,
     start: PropTypes.string.isRequired,
   })).isRequired
 }

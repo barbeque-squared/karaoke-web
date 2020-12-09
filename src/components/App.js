@@ -55,8 +55,8 @@ class App extends Component {
     fetch(`https://${process.env.REACT_APP_DOMAIN}/data/livecode.txt`)
       .then(response => response.text())
       .then(text => {
-      // noinspection JSIncompatibleTypesComparison
-        if (text === window.location.hash) {
+        // noinspection JSIncompatibleTypesComparison
+        if (text.trim() === window.location.hash) {
           this.setState({canSubmit: true})
         }
       })

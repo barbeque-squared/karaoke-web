@@ -1,21 +1,8 @@
 import React, {Component} from 'react';
 import '../App.css';
-import * as firebase from 'firebase/app';
-import 'firebase/database';
-
 import Karaoke from './Karaoke';
 import ULevel from '../constants/ULevel';
 import LiveScoreStatus from '../constants/LiveScoreStatus';
-
-const config = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-}
 
 class App extends Component {
   constructor(props) {
@@ -56,28 +43,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.initFirebase()
-  }
-  
-  initFirebase() {
-    try {
-      firebase.initializeApp(config);
-      let database = firebase.database();
-      // setup handlers
-      database.ref('karaoke/background').on('value', d => this.setState({background: d.val()}))
-      database.ref('karaoke/schedule').once('value', d => this.setState({schedule: d.val()}))
-      database.ref('karaoke/songlist').once('value', d => this.setState({songlist: d.val()}))
-      database.ref('karaoke/livecode').once('value', d => {
-        if (d.val() === window.location.hash) {
+    fetch(`https://${process.env.REACT_APP_DOMAIN}/data/background.json`)
+      .then(response => response.json())
+      .then(json => this.setState({background: json.background}))
+    fetch(`https://${process.env.REACT_APP_DOMAIN}/data/schedule.json`)
+      .then(response => response.json())
+      .then(json => this.setState({schedule: json.schedule}))
+    fetch(`https://${process.env.REACT_APP_DOMAIN}/data/songlist.json`)
+      .then(response => response.json())
+      .then(json => this.setState({songlist: json.songlist}))
+    fetch(`https://${process.env.REACT_APP_DOMAIN}/data/livecode.txt`)
+      .then(response => response.text())
+      .then(text => {
+      // noinspection JSIncompatibleTypesComparison
+        if (text === window.location.hash) {
           this.setState({canSubmit: true})
         }
       })
-      database.ref('karaoke/websocket').once('value', d => this.initSocket(d.val()))
-    } catch (e) {
-      console.error(e);
-    }
+    this.initSocket(`wss://${process.env.REACT_APP_DOMAIN}/live`)
   }
-  
+
   initSocket(url) {
     const socket = new WebSocket(url)
     socket.onerror = (_ => this.setState({livescorestatus: LiveScoreStatus.NOT_CONNECTED}))

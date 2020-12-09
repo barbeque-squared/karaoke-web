@@ -34,8 +34,8 @@ class ScoreScreen extends PureComponent {
               <th className="level"><span title="Difficulty">L</span></th>
               <th className="player">Player</th>
               <th>Notes</th>
-              <th>Golden</th>
               <th>Line</th>
+              <th>Golden</th>
               <th>Total</th>
             </tr>
           </thead>
@@ -48,8 +48,8 @@ class ScoreScreen extends PureComponent {
                 <td className="level"><LevelIcon level={this.props.levels[index]} /></td>
                 <td className="player">{name}</td>
                 <td>{this.props.noteScores[index]}</td>
-                <td>{this.props.goldenScores[index]}</td>
                 <td>{this.props.lineScores[index]}</td>
+                <td>{this.props.goldenScores[index]}</td>
                 <td>
                   {this.props.scores[index]}
                   {this.props.canSubmit && name === this.state.username && this.props.md5 !== '' && (

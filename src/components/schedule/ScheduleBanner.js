@@ -19,15 +19,15 @@ class ScheduleBanner extends PureComponent {
   }
 
   render() {
-    const sessions = this.props.schedule.filter(s => !this.ended(s))
-    if (sessions.length) {
-      return (
-        <div className={'ScheduleBanner'}>
-          <h1>Upcoming session: <span className={'help'} title={'UTC: ' + this.utcFormat(sessions[0].start)}>{this.localFormat(sessions[0].start)}</span></h1>
-          <p>See the menu for the full schedule, and how to participate</p>
-        </div>
-      )
-    }
+    //~ const sessions = this.props.schedule.filter(s => !this.ended(s))
+    //~ if (sessions.length) {
+      //~ return (
+        //~ <div className={'ScheduleBanner'}>
+          //~ <h1>Upcoming session: <span className={'help'} title={'UTC: ' + this.utcFormat(sessions[0].start)}>{this.localFormat(sessions[0].start)}</span></h1>
+          //~ <p>See the menu for the full schedule, and how to participate</p>
+        //~ </div>
+      //~ )
+    //~ }
     return null
   }
 }

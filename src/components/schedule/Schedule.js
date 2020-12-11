@@ -26,13 +26,13 @@ class Schedule extends PureComponent {
   render() {
     return (
       <div className={'Schedule'}>
-        <p>Upcoming karaoke sessions are listed below. Sessions for next week are usually added around Wednesday.</p>
+        <p>Upcoming karaoke sessions are listed below. Sessions for next week are usually added around Wednesday. To participate, contact <em>{process.env.REACT_APP_CONTACT}</em> on Discord in advance.</p>
         <table>
           <thead><tr>
             <th>When</th>
             <th>Duration</th>
             <th>Slots left</th>
-            <th>Signup</th>
+            <th>Note</th>
           </tr></thead>
           <tbody>
           {this.props.schedule.filter(s => !this.ended(s)).map(session => (
@@ -40,7 +40,7 @@ class Schedule extends PureComponent {
               <td title={'UTC: ' + this.utcFormat(session.start)} className={'help'}>{this.localFormat(session.start)}</td>
               <td>{this.formatDuration(session.duration)}</td>
               <td>{session.max - session.players < 1 ? 'None': session.max - session.players}</td>
-              <td>{session.signup && session.signup.length ? <a href={session.signup}>Form</a> : 'Invite-only'}</td>
+              <td>{session.note && (session.note)}</td>
             </tr>
           ))}
           </tbody>
@@ -60,8 +60,8 @@ Schedule.propTypes = {
   schedule: PropTypes.arrayOf(PropTypes.shape({
     duration: PropTypes.string.isRequired,
     max: PropTypes.number.isRequired,
+    note: PropTypes.string,
     players: PropTypes.number.isRequired,
-    signup: PropTypes.string.isRequired,
     start: PropTypes.string.isRequired,
   })).isRequired
 }

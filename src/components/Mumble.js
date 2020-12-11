@@ -32,7 +32,7 @@ class Mumble extends PureComponent {
           <li>Open the Network tab</li>
           <li>Under Connection, Force TCP mode should be <em>unchecked</em></li>
           <li>Open the Messages tab</li>
-          <li>Uncheck everything in the Text-To-Speech and Soundfile columns. Most people will want to uncheck everything under Notification as well.</li>
+          <li><strong>Uncheck everything in the Text-To-Speech and Soundfile columns. Most people will want to uncheck everything under Notification as well.</strong></li>
         </ol>
       </>
     )

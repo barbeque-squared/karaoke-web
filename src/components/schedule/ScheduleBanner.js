@@ -19,12 +19,6 @@ class ScheduleBanner extends PureComponent {
   }
 
   render() {
-    return (
-      <div className={'ScheduleBanner'}>
-        <h1>Check the Discord text room for instructions!</h1>
-        <p>You need to install <a href="https://www.mumble.info/downloads">Mumble</a></p>
-      </div>
-    )
     //~ const sessions = this.props.schedule.filter(s => !this.ended(s))
     //~ if (sessions.length) {
       //~ return (
@@ -34,7 +28,7 @@ class ScheduleBanner extends PureComponent {
         //~ </div>
       //~ )
     //~ }
-    //~ return null
+    return null
   }
 }
 

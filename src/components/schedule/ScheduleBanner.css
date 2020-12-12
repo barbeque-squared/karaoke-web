@@ -17,10 +17,6 @@
   white-space: nowrap;
 }
 
-.ScheduleBanner a {
-  color: yellow;
-}
-
 .ScheduleBanner h1 .help {
   cursor: help;
   text-decoration: underline dotted;

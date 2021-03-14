@@ -1,0 +1,13 @@
+button.play-pause {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 9vh;
+  height: 9vh;
+  border: none;
+  font-size: 8vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: solid 1px white;
+  color: white;
+  cursor: pointer;
+}

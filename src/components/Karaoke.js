@@ -8,11 +8,13 @@ import SingScreen from './SingScreen'
 import SongBrowser from './songs/SongBrowser'
 import Menu from './Menu'
 import ScheduleBanner from './schedule/ScheduleBanner'
+import AudioPlayer from './AudioPlayer'
 
 class Karaoke extends PureComponent {
   render() {
     return (
       <div className="karaoke" style={{backgroundImage: `url(${this.props.background})`}}>
+        <AudioPlayer />
         <Menu schedule={this.props.schedule} />
         
         <LiveScoreIndicator status={this.props.livescorestatus} />

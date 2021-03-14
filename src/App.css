@@ -10,7 +10,7 @@ button.menu {
   position: fixed;
   width: 9vh;
   height: 9vh;
-  top: 0;
+  top: 9vh;
   left: 0;
   border: none;
   font-size: 8vh;

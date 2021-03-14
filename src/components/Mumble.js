@@ -10,7 +10,6 @@ class Mumble extends PureComponent {
         </p>
         <p>
           Note: if you do not have a (good) microphone, but your smartphone does, it is possible to use your computer for the music and your smartphone for singing.
-          In that case, just mute the microphone part on the computer, and find an app for your phone (TODO: link useful apps) and set up that correctly.
           Be aware that using a computer results in a better experience, but it is still playable.
         </p>
         <h4>One-time configuration</h4>

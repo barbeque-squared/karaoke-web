@@ -133,6 +133,7 @@ div.songbrowser {
   border-radius: 4vh;
   padding: 5vh;
   color: white;
+  font-size: 2vh;
 }
 div.songbrowser .scrolltable {
   max-height: calc(65vh);

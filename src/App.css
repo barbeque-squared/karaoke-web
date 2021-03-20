@@ -133,7 +133,6 @@ div.songbrowser {
   border-radius: 4vh;
   padding: 5vh;
   color: white;
-  font-size: 2vh;
 }
 div.songbrowser .scrolltable {
   max-height: calc(65vh);
@@ -221,10 +220,12 @@ svg.notearea .note {
 
 /* SENTENCES */
 .sentences {
+  font-family: 'Arial Black', sans-serif;
   font-size: 5vh;
   font-weight: 800;
   width: 100%;
   height: 13vh;
+  line-height: 6vh;
   text-align: center;
   color: white;
   -webkit-text-stroke: 0.3vh black;

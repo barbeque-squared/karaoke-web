@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "color": "^3.1.2",
-    "firebase-tools": "^8.10.0",
     "language-icons": "^0.3.0",
     "prop-types": "^15.7.2",
     "proposal-temporal": "^0.6.0",

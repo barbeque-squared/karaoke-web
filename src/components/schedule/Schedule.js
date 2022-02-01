@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Temporal } from 'proposal-temporal'
+import { Temporal } from '@js-temporal/polyfill'
 import './Schedule.css'
 
 class Schedule extends PureComponent {
@@ -19,7 +19,7 @@ class Schedule extends PureComponent {
 
   ended(session) {
     const end = Temporal.Instant.from(session.start).add(Temporal.Duration.from(session.duration))
-    const now = Temporal.now.instant()
+    const now = Temporal.Now.instant()
     return Temporal.Instant.compare(end, now) < 1
   }
 

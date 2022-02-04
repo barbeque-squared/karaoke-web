@@ -6,6 +6,9 @@ import getColor from '../../helpers/getColor'
 
 class SvgNotes extends PureComponent {
   isSingable(note) {
+    return note.NoteType !== NoteType.FREESTYLE
+  }
+  isNormal(note) {
     return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
   }
   
@@ -40,8 +43,8 @@ class SvgNotes extends PureComponent {
             width={note.Length}
             height={2*halfHeight}
             className="note"
-            fill={fill}
-            stroke={stroke}
+            fill={this.isNormal(note) ? fill : '#333'}
+            stroke={this.isNormal(note) ? stroke : 'black'}
             strokeWidth={0.2}
           />
         ))}

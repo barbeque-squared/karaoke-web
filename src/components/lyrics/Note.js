@@ -7,9 +7,9 @@ class Note extends PureComponent {
     switch (notetype) {
       case NoteType.NORMAL:
       case NoteType.GOLDEN: return "normal"
-      case NoteType.FREESTYLE:
+      case NoteType.FREESTYLE: return "freestyle"
       case NoteType.RAP:
-      case NoteType.RAP_GOLDEN: return "freestyle"
+      case NoteType.RAP_GOLDEN: return "rap"
       default: return "normal"
     }
   }

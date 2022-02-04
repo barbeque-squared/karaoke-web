@@ -29,7 +29,7 @@ class NoteArea extends PureComponent {
   }
   
   isSingable(note) {
-    return note.NoteType === NoteType.NORMAL || note.NoteType === NoteType.GOLDEN
+    return note.NoteType !== NoteType.FREESTYLE
   }
   render() {
     if (this.props.notes && this.props.notes.length) {
